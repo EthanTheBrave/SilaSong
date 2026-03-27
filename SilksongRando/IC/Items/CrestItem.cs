@@ -3,32 +3,32 @@ using SilksongIC;
 namespace SilksongRando.IC.Items
 {
     /// <summary>
-    /// Equipment crest (tool/weapon slot). Unlocks a crest in the player's loadout.
-    /// Based on SilksongSimpleRando's use of ToolItemManager.GetAllCrests().
+    /// Unlocks an equipment crest.
+    /// ToolItemManager.GetCrestByName(string) and ToolCrest.Unlock() confirmed
+    /// from decompiled Assembly-CSharp. IsUnlocked property also confirmed.
     /// </summary>
     public class CrestItem : AbstractItem
     {
-        public string CrestId { get; init; } = string.Empty;
+        public string CrestName { get; init; } = string.Empty;
 
         public override void GiveItem(GiveInfo info)
         {
-            // Unlock the crest via ToolItemManager so it appears in the loadout screen
-            var equipData = ToolItemManager.instance.GetCrestEquipData(CrestId);
-            if (equipData != null)
+            var crest = ToolItemManager.GetCrestByName(CrestName);
+            if (crest != null)
             {
-                equipData.unlocked = true;
-                RandoPlugin.Logger.LogInfo($"[CrestItem] Unlocked crest: {CrestId}");
+                crest.Unlock();
+                RandoPlugin.Logger.LogInfo($"[CrestItem] Unlocked crest: {CrestName}");
             }
             else
             {
-                RandoPlugin.Logger.LogWarning($"[CrestItem] Crest not found: {CrestId}");
+                RandoPlugin.Logger.LogWarning($"[CrestItem] Crest not found: {CrestName}");
             }
         }
 
         public override bool AlreadyObtained()
         {
-            var equipData = ToolItemManager.instance.GetCrestEquipData(CrestId);
-            return equipData?.unlocked ?? false;
+            var crest = ToolItemManager.GetCrestByName(CrestName);
+            return crest?.IsUnlocked ?? false;
         }
     }
 }

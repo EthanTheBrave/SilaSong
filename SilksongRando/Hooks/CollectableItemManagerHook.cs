@@ -5,38 +5,52 @@ using SilksongIC.Locations;
 namespace SilksongRando.Hooks
 {
     /// <summary>
-    /// Prevents CollectableItemManager from treating randomized pickups as
-    /// "already collected" before the player reaches them.
+    /// Prevents randomized pickups from being hidden on scene load.
     ///
-    /// Without this patch the game reads its master list on scene load and
-    /// hides any pickup whose item is already in the player's inventory —
-    /// which would make randomized locations invisible.
+    /// From decompiled Assembly-CSharp:
+    ///   - CollectableItemPickup.Start() calls GameManager.instance.CanPickupsExist()
+    ///     and then checks the item's persistence state.
+    ///   - CollectableItemPickup.Item returns a SavedItem; SavedItem.CanGetMore()
+    ///     returns false if already at max (i.e. already collected).
+    ///   - If CanGetMore() is false, the pickup hides itself.
+    ///
+    /// Strategy: patch SavedItem.CanGetMore on CollectableItem so that items
+    /// that are rando-tracked always report they can be picked up, until we
+    /// actually deliver the rando item (at which point they're suppressed by
+    /// our DoPickup prefix returning false).
     /// </summary>
     [HarmonyPatch]
     internal static class CollectableItemManagerHook
     {
-        [HarmonyPatch(typeof(CollectableItemManager), nameof(CollectableItemManager.IsItemInMasterList))]
-        [HarmonyPrefix]
-        static bool OverrideIsItemInMasterList(string itemId, ref bool __result)
+        [HarmonyPatch(typeof(CollectableItem), nameof(CollectableItem.CanGetMore))]
+        [HarmonyPostfix]
+        static void ForceCanGetMore(CollectableItem __instance, ref bool __result)
         {
-            if (!RandoPlugin.Instance.IsRandoActive) return true;
+            if (!RandoPlugin.Instance.IsRandoActive) return;
+            if (!__result) return; // already true, no need to override
 
-            // If this original item ID belongs to a randomized location, pretend
-            // it is NOT in the master list so the pickup stays visible.
-            if (IsTrackedItemId(itemId))
-            {
-                __result = false;
-                return false; // skip original method
-            }
-
-            return true;
+            // If this item's asset name is the original item of a tracked location
+            // that hasn't been collected yet, force it to appear as collectible.
+            if (IsTrackedAndUncollected(__instance.name))
+                __result = true;
         }
 
-        private static bool IsTrackedItemId(string itemId)
+        [HarmonyPatch(typeof(CollectableItem), "IsAtMax")]
+        [HarmonyPostfix]
+        static void ForceNotAtMax(CollectableItem __instance, ref bool __result)
+        {
+            if (!RandoPlugin.Instance.IsRandoActive) return;
+            if (IsTrackedAndUncollected(__instance.name))
+                __result = false; // pretend not at max so pickup stays visible
+        }
+
+        private static bool IsTrackedAndUncollected(string assetName)
         {
             foreach (var loc in ItemManager.Instance.Locations.Values)
             {
-                if (loc is CollectableItemPickupLocation cip && cip.OriginalItemId == itemId)
+                if (loc is CollectableItemPickupLocation cip &&
+                    cip.OriginalItemId == assetName &&
+                    !ItemManager.Instance.IsCollected(loc.Name))
                     return true;
             }
             return false;

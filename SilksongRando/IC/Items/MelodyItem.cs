@@ -1,4 +1,3 @@
-using HarmonyLib;
 using SilksongIC;
 
 namespace SilksongRando.IC.Items
@@ -6,28 +5,43 @@ namespace SilksongRando.IC.Items
     /// <summary>
     /// Grants one of the three melodies (Vault, Architect, Conductor).
     ///
-    /// Melodies are tracked by CollectableItemManager. We add the melody ID
-    /// directly to the master list so the game treats it as collected.
-    /// This mirrors the approach in Silksong-Rando's CollectableItemManager hook.
+    /// Melodies are CollectableItems tracked by CollectableItemManager.
+    /// CollectableItemManager.AddItem(CollectableItem, int) is the public static
+    /// method confirmed from decompiled Assembly-CSharp.
+    /// We look up the CollectableItem asset by name from the master list.
     /// </summary>
     public class MelodyItem : AbstractItem
     {
-        public string MelodyId { get; init; } = string.Empty;
+        /// <summary>The CollectableItem asset name for this melody.</summary>
+        public string ItemAssetName { get; init; } = string.Empty;
 
         public override void GiveItem(GiveInfo info)
         {
-            // Add to CollectableItemManager's persistent collected set
-            CollectableItemManager.instance.AddItemToMasterList(MelodyId);
-
-            // Also set a PlayerData flag so UI correctly shows it
-            PlayerData.instance.SetBool($"hasCollected_{MelodyId}", true);
-
-            RandoPlugin.Logger.LogInfo($"[MelodyItem] Gave melody: {MelodyId}");
+            var item = GetCollectableItem();
+            if (item != null)
+            {
+                CollectableItemManager.AddItem(item, 1);
+                RandoPlugin.Logger.LogInfo($"[MelodyItem] Added collectable: {ItemAssetName}");
+            }
+            else
+            {
+                RandoPlugin.Logger.LogWarning($"[MelodyItem] CollectableItem not found: {ItemAssetName}");
+            }
         }
 
         public override bool AlreadyObtained()
         {
-            return CollectableItemManager.instance.IsItemInMasterList(MelodyId);
+            var item = GetCollectableItem();
+            return item != null && !item.CanGetMore();
+        }
+
+        private CollectableItem? GetCollectableItem()
+        {
+            foreach (var ci in CollectableItemManager.GetCollectedItems())
+                if (ci.name == ItemAssetName) return ci;
+
+            // Also check master list via Resources if not yet collected
+            return UnityEngine.Resources.Load<CollectableItem>(ItemAssetName);
         }
     }
 }

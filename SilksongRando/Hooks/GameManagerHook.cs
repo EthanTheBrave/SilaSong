@@ -4,27 +4,23 @@ using System;
 namespace SilksongRando.Hooks
 {
     /// <summary>
-    /// Hooks into GameManager to:
-    ///   • Start randomization on new game (first scene transition)
-    ///   • Clear rando state when a save file is wiped
+    /// Hooks GameManager.BeginSceneTransition to trigger randomization
+    /// on the first scene load of a new rando game.
+    /// BeginSceneTransition(SceneLoadInfo) is the confirmed public entry point
+    /// from decompiled Assembly-CSharp.
     /// </summary>
     [HarmonyPatch]
     internal static class GameManagerHook
     {
         private static bool _randoStarted;
 
-        /// <summary>
-        /// The first BeginSceneTransition on a new rando save triggers randomization.
-        /// We wait until here (rather than SetupNewPlayerData) because DataManager
-        /// may not have finished initializing ISaveDataMod instances at that point.
-        /// </summary>
         [HarmonyPatch(typeof(GameManager), nameof(GameManager.BeginSceneTransition))]
         [HarmonyPrefix]
-        static void OnBeginSceneTransition()
+        static void OnBeginSceneTransition(SceneLoadInfo info)
         {
             if (!RandoPlugin.Instance.IsRandoActive) return;
             if (_randoStarted) return;
-            if (RandoPlugin.Instance.SaveData.Placements.Count > 0) return; // loaded from save
+            if (RandoPlugin.Instance.SaveData.Placements.Count > 0) return; // loaded save
 
             try
             {
@@ -37,10 +33,13 @@ namespace SilksongRando.Hooks
             }
         }
 
-        /// <summary>Reset flag when a save file is cleared.</summary>
-        [HarmonyPatch(typeof(GameManager), nameof(GameManager.ClearSaveFile))]
+        /// <summary>
+        /// Reset when a new game is started so a fresh rando can be generated.
+        /// Hooks PlayerData.CreateNewSingleton since GameManager has no ClearSaveFile.
+        /// </summary>
+        [HarmonyPatch(typeof(PlayerData), nameof(PlayerData.CreateNewSingleton))]
         [HarmonyPostfix]
-        static void OnClearSaveFile()
+        static void OnNewGame()
         {
             _randoStarted = false;
         }

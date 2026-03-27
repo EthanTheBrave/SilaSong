@@ -11,10 +11,30 @@ namespace SilksongRando.IC
 {
     /// <summary>
     /// Reads items.json and locations.json and registers all content with SilksongIC's ItemManager.
-    /// This is the bridge between the JSON data layer and the runtime hook layer.
+    ///
+    /// Ability PlayerData field names confirmed from decompiled Assembly-CSharp.dll:
+    ///   Silkspear  → hasSilkSpecial
+    ///   Sprint     → hasDash
+    ///   Walljump   → hasWalljump
+    ///   Needolin   → hasNeedolin
+    ///   SilkSphere → hasThreadSphere
+    ///   Brolly     → hasBrolly
+    ///   Faydown    → hasSilkCharge
     /// </summary>
     public static class ICRegistrar
     {
+        // Maps ability name → confirmed PlayerData bool field
+        private static readonly Dictionary<string, string> AbilityFields = new()
+        {
+            ["Silkspear"]  = "hasSilkSpecial",
+            ["Sprint"]     = "hasDash",
+            ["Walljump"]   = "hasWalljump",
+            ["Needolin"]   = "hasNeedolin",
+            ["SilkSphere"] = "hasThreadSphere",
+            ["Brolly"]     = "hasBrolly",
+            ["Faydown"]    = "hasSilkCharge",
+        };
+
         public static void RegisterAll()
         {
             RegisterItems();
@@ -26,20 +46,14 @@ namespace SilksongRando.IC
         {
             var defs = ReadJson<ItemDef[]>("Data.items.json");
             foreach (var def in defs)
-            {
-                var item = CreateItem(def);
-                ItemManager.Instance.RegisterItem(item);
-            }
+                ItemManager.Instance.RegisterItem(CreateItem(def));
         }
 
         private static void RegisterLocations()
         {
             var defs = ReadJson<LocationDef[]>("Data.locations.json");
             foreach (var def in defs)
-            {
-                var location = CreateLocation(def);
-                ItemManager.Instance.RegisterLocation(location);
-            }
+                ItemManager.Instance.RegisterLocation(CreateLocation(def));
         }
 
         private static AbstractItem CreateItem(ItemDef def)
@@ -48,14 +62,21 @@ namespace SilksongRando.IC
             var ui   = def.uiName ?? def.name;
             return def.type switch
             {
-                "ability"    => new AbilityItem   { Name = name, UIName = ui, AbilityId = def.abilityId ?? name },
-                "melody"     => new MelodyItem    { Name = name, UIName = ui, MelodyId  = def.melodyId  ?? name },
-                "bell"       => new BellItem      { Name = name, UIName = ui, BellId    = def.itemId    ?? name },
+                "ability" => new AbilityItem
+                {
+                    Name             = name,
+                    UIName           = ui,
+                    PlayerDataField  = AbilityFields.TryGetValue(def.abilityId ?? name, out var field)
+                                       ? field
+                                       : $"has{def.abilityId ?? name}",
+                },
+                "melody"     => new MelodyItem    { Name = name, UIName = ui, ItemAssetName = def.itemId ?? name },
+                "bell"       => new BellItem      { Name = name, UIName = ui, ItemAssetName = def.itemId ?? name },
                 "heartpiece" => new HeartPieceItem { Name = name, UIName = ui },
-                "geo"        => new GeoItem       { Name = name, UIName = ui, Amount    = def.amount ?? 0 },
-                "crest"      => new CrestItem     { Name = name, UIName = ui, CrestId   = def.itemId ?? name },
-                "trinket"    => new TrinketItem   { Name = name, UIName = ui, ItemId    = def.itemId ?? name },
-                _            => new TrinketItem   { Name = name, UIName = ui, ItemId    = name },
+                "geo"        => new GeoItem       { Name = name, UIName = ui, Amount = def.amount ?? 0 },
+                "crest"      => new CrestItem     { Name = name, UIName = ui, CrestName = def.itemId ?? name },
+                "trinket"    => new TrinketItem   { Name = name, UIName = ui, ItemAssetName = def.itemId ?? name },
+                _            => new TrinketItem   { Name = name, UIName = ui, ItemAssetName = name },
             };
         }
 
@@ -65,31 +86,31 @@ namespace SilksongRando.IC
             {
                 "collectable" => new CollectableItemPickupLocation
                 {
-                    Name = def.name,
-                    SceneName = def.scene ?? string.Empty,
+                    Name           = def.name,
+                    SceneName      = def.scene ?? string.Empty,
                     GameObjectName = def.gameObject,
                     OriginalItemId = def.originalItemId ?? string.Empty,
                 },
                 "fsm" => new FSMLocation
                 {
-                    Name = def.name,
-                    SceneName = def.scene ?? string.Empty,
+                    Name           = def.name,
+                    SceneName      = def.scene ?? string.Empty,
                     GameObjectName = def.gameObject ?? string.Empty,
-                    FSMName = def.fsmName ?? string.Empty,
-                    TriggerState = def.triggerState ?? string.Empty,
+                    FSMName        = def.fsmName ?? string.Empty,
+                    TriggerState   = def.triggerState ?? string.Empty,
                 },
                 "shop" => new ShopLocation
                 {
-                    Name = def.name,
-                    SceneName = def.scene ?? string.Empty,
-                    ShopOwnerName = def.shopOwner ?? string.Empty,
+                    Name           = def.name,
+                    SceneName      = def.scene ?? string.Empty,
+                    ShopOwnerName  = def.shopOwner ?? string.Empty,
                     OriginalItemId = def.originalItemId ?? string.Empty,
-                    Cost = def.cost ?? 0,
+                    Cost           = def.cost ?? 0,
                 },
                 _ => new CollectableItemPickupLocation
                 {
-                    Name = def.name,
-                    SceneName = def.scene ?? string.Empty,
+                    Name           = def.name,
+                    SceneName      = def.scene ?? string.Empty,
                     OriginalItemId = def.originalItemId ?? string.Empty,
                 },
             };
@@ -97,36 +118,38 @@ namespace SilksongRando.IC
 
         private static T ReadJson<T>(string name)
         {
-            var asm = Assembly.GetExecutingAssembly();
+            var asm      = Assembly.GetExecutingAssembly();
             var fullName = $"SilksongRando.Resources.{name}";
             using var stream = asm.GetManifestResourceStream(fullName)
                 ?? throw new InvalidOperationException($"Embedded resource not found: {fullName}");
             using var reader = new StreamReader(stream);
             return JsonConvert.DeserializeObject<T>(reader.ReadToEnd())
-                ?? throw new InvalidOperationException($"Failed to parse: {fullName}");
+                ?? throw new InvalidOperationException($"Failed to deserialize: {fullName}");
         }
 
-        // JSON schema structs
-        private record ItemDef(
-            string name,
-            string type,
-            string? uiName,
-            string? abilityId,
-            string? melodyId,
-            string? itemId,
-            int? amount
-        );
+#pragma warning disable CS8618
+        private class ItemDef
+        {
+            public string  name;
+            public string  type;
+            public string? uiName;
+            public string? abilityId;
+            public string? itemId;
+            public int?    amount;
+        }
 
-        private record LocationDef(
-            string name,
-            string? scene,
-            string locationType,
-            string? gameObject,
-            string? originalItemId,
-            string? fsmName,
-            string? triggerState,
-            string? shopOwner,
-            int? cost
-        );
+        private class LocationDef
+        {
+            public string  name;
+            public string? scene;
+            public string  locationType;
+            public string? gameObject;
+            public string? originalItemId;
+            public string? fsmName;
+            public string? triggerState;
+            public string? shopOwner;
+            public int?    cost;
+        }
+#pragma warning restore CS8618
     }
 }

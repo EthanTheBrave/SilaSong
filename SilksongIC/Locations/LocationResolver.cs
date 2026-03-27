@@ -1,38 +1,32 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using SilksongIC.Locations;
 
 namespace SilksongIC.Locations
 {
     /// <summary>
-    /// Maps CollectableItemPickup instances → location names.
-    /// Built once per scene load from registered CollectableItemPickupLocations.
+    /// Maps CollectableItemPickup instances → location names at runtime.
+    ///
+    /// From decompiled Assembly-CSharp:
+    ///   - CollectableItemPickup.Item returns a SavedItem (ScriptableObject).
+    ///   - SavedItem.name (UnityEngine.Object.name) is the asset name we use
+    ///     as the identifier in locations.json (originalItemId field).
+    ///   - We also match by GameObject name as a fallback when originalItemId
+    ///     is ambiguous (multiple pickups with same item in one scene).
     /// </summary>
     public static class LocationResolver
     {
-        // gameObject instance ID -> location name
+        // CollectableItemPickup instance ID → location name
         private static readonly Dictionary<int, string> _cache = new();
 
         public static void RebuildForScene(string sceneName)
         {
             _cache.Clear();
-            foreach (var loc in ItemManager.Instance.Locations.Values)
+
+            foreach (var pickup in Object.FindObjectsOfType<CollectableItemPickup>())
             {
-                if (loc is not CollectableItemPickupLocation cipLoc) continue;
-                if (cipLoc.SceneName != sceneName) continue;
-
-                // Find the matching GameObject in the loaded scene
-                var go = cipLoc.GameObjectName != null
-                    ? GameObject.Find(cipLoc.GameObjectName)
-                    : FindByItemId(cipLoc.OriginalItemId);
-
-                if (go == null) continue;
-
-                var pickup = go.GetComponent<CollectableItemPickup>();
-                if (pickup == null) continue;
-
-                _cache[pickup.GetInstanceID()] = loc.Name;
+                var locationName = FindLocationName(pickup, sceneName);
+                if (locationName != null)
+                    _cache[pickup.GetInstanceID()] = locationName;
             }
         }
 
@@ -42,15 +36,26 @@ namespace SilksongIC.Locations
             return name;
         }
 
-        private static GameObject? FindByItemId(string itemId)
+        private static string? FindLocationName(CollectableItemPickup pickup, string sceneName)
         {
-            // Iterate all CollectableItemPickups in the scene and match by item ID
-            foreach (var pickup in Object.FindObjectsOfType<CollectableItemPickup>())
+            var assetName = pickup.Item?.name;
+            var goName    = pickup.gameObject.name;
+
+            foreach (var loc in ItemManager.Instance.Locations.Values)
             {
-                // Update this property name once the game's assembly is decompiled
-                if (pickup.ItemID == itemId)
-                    return pickup.gameObject;
+                if (loc is not CollectableItemPickupLocation cip) continue;
+                if (cip.SceneName != sceneName) continue;
+                if (ItemManager.Instance.IsCollected(loc.Name)) continue;
+
+                // Match by GameObject name if specified, otherwise by item asset name
+                bool nameMatch = cip.GameObjectName != null
+                    ? cip.GameObjectName == goName
+                    : cip.OriginalItemId == assetName;
+
+                if (nameMatch)
+                    return loc.Name;
             }
+
             return null;
         }
     }
@@ -65,6 +70,7 @@ namespace SilksongIC.Locations
         public static void RebuildForScene(string sceneName)
         {
             _cache.Clear();
+
             foreach (var loc in ItemManager.Instance.Locations.Values)
             {
                 if (loc is not FSMLocation fsmLoc) continue;
@@ -73,10 +79,15 @@ namespace SilksongIC.Locations
                 var go = GameObject.Find(fsmLoc.GameObjectName);
                 if (go == null) continue;
 
-                var fsm = go.GetComponent<PlayMakerFSM>();
-                if (fsm == null || fsm.FsmName != fsmLoc.FSMName) continue;
-
-                _cache[fsm.GetInstanceID()] = loc.Name;
+                // Find the FSM by name on this GameObject
+                foreach (var fsm in go.GetComponents<PlayMakerFSM>())
+                {
+                    if (fsm.FsmName == fsmLoc.FSMName)
+                    {
+                        _cache[fsm.GetInstanceID()] = loc.Name;
+                        break;
+                    }
+                }
             }
         }
 

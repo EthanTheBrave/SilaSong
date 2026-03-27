@@ -3,24 +3,22 @@ using HarmonyLib;
 namespace SilksongRando.Hooks
 {
     /// <summary>
-    /// Marks the save as a rando save when "Randomiser" game mode is selected
-    /// and a new game begins.
+    /// Marks the save as a rando save when a new game is created.
+    /// PlayerData.CreateNewSingleton is the public entry point that fires
+    /// when the player starts a new game (confirmed from decompiled Assembly-CSharp).
     /// </summary>
     [HarmonyPatch]
     internal static class NewGameHook
     {
-        [HarmonyPatch(typeof(PlayerData), nameof(PlayerData.SetupNewPlayerData))]
+        [HarmonyPatch(typeof(PlayerData), nameof(PlayerData.CreateNewSingleton))]
         [HarmonyPostfix]
-        static void OnNewPlayerData()
+        static void OnNewSingleton()
         {
-            // Only activate if the player selected the Randomiser game mode.
-            // GameModeManager.CurrentMode is set before SetupNewPlayerData fires.
             if (Silksong.GameModeManager.GameModeManager.CurrentMode?.Id != "Randomiser")
                 return;
 
             RandoPlugin.Instance.SaveData.IsActive = true;
 
-            // Apply seed from settings (set via seed menu or default random)
             if (RandoPlugin.Instance.Settings.Seed == 0)
                 RandoPlugin.Instance.Settings.Seed = (int)(
                     System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() & 0x7FFFFFFF);

@@ -1,32 +1,31 @@
-using HarmonyLib;
 using SilksongIC;
 
 namespace SilksongRando.IC.Items
 {
     /// <summary>
-    /// Grants a movement/combat ability (Silkspear, Sprint, Walljump, etc).
+    /// Grants a movement/combat ability.
     ///
-    /// Based on Silksong-Rando's observation that abilities are stored as bools
-    /// in PlayerData under names like "hasAbility_Sprint". Exact field names must
-    /// be confirmed from the decompiled assembly.
+    /// Field names confirmed from decompiled Assembly-CSharp.dll:
+    ///   hasSilkSpecial  = Silkspear (silk special projectile)
+    ///   hasDash         = Sprint/Dash
+    ///   hasWalljump     = Walljump
+    ///   hasNeedolin     = Needolin
+    ///   hasThreadSphere = Silk Sphere
+    ///   hasBrolly       = Brolly
+    ///   hasSilkCharge   = Silk Charge (mapped to Faydown ability unlock)
     /// </summary>
     public class AbilityItem : AbstractItem
     {
-        public string AbilityId { get; init; } = string.Empty;
+        /// <summary>The PlayerData bool field name for this ability.</summary>
+        public string PlayerDataField { get; init; } = string.Empty;
 
         public override void GiveItem(GiveInfo info)
         {
-            // Set the ability flag in PlayerData.
-            // Field naming follows the pattern observed in Silksong-Rando hooks.
-            var fieldName = $"hasAbility_{AbilityId}";
-            PlayerData.instance.SetBool(fieldName, true);
-
-            RandoPlugin.Logger.LogInfo($"[AbilityItem] Gave ability: {AbilityId} (field: {fieldName})");
+            PlayerData.instance.SetBool(PlayerDataField, true);
+            RandoPlugin.Logger.LogInfo($"[AbilityItem] Set {PlayerDataField} = true");
         }
 
-        public override bool AlreadyObtained()
-        {
-            return PlayerData.instance.GetBool($"hasAbility_{AbilityId}");
-        }
+        public override bool AlreadyObtained() =>
+            PlayerData.instance.GetBool(PlayerDataField);
     }
 }
