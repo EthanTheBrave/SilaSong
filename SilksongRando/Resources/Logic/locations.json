@@ -1,44 +1,1418 @@
 [
-  // ── Ability locations ─────────────────────────────────────────────────
-  { "name": "Silkspear_Pickup",    "logic": "TRUE" },
-  { "name": "Sprint_Pickup",       "logic": "Ability_Silkspear" },
-  { "name": "Walljump_Pickup",     "logic": "Ability_Silkspear" },
-  { "name": "Needolin_NPC",        "logic": "Ability_Sprint" },
-  { "name": "SilkSphere_Pickup",   "logic": "Ability_Walljump" },
-  { "name": "Brolly_Pickup",       "logic": "Ability_Walljump" },
-  { "name": "Faydown_DJ",          "logic": "Reached_Faydown" },
-
-  // ── Melody locations ──────────────────────────────────────────────────
-  { "name": "Melody_Vault_Location",      "logic": "Reached_VaultBoss" },
-  { "name": "Melody_Architect_Location",  "logic": "Reached_ArchitectBoss" },
-  { "name": "Melody_Conductor_Location",  "logic": "Reached_ConductorBoss" },
-
-  // ── Heart Pieces ──────────────────────────────────────────────────────
-  { "name": "HeartPiece_01", "logic": "TRUE" },
-  { "name": "HeartPiece_02", "logic": "Ability_Silkspear" },
-  { "name": "HeartPiece_03", "logic": "Ability_Walljump" },
-  { "name": "HeartPiece_04", "logic": "Ability_Sprint" },
-  { "name": "HeartPiece_05", "logic": "TRUE" },
-  { "name": "HeartPiece_06", "logic": "Ability_Walljump + Ability_Sprint" },
-  { "name": "HeartPiece_07", "logic": "Reached_Act2" },
-  { "name": "HeartPiece_08", "logic": "Reached_Act2 + Ability_Silkspear" },
-
-  // ── Bellshrines ───────────────────────────────────────────────────────
-  { "name": "Bellshrine_01", "logic": "TRUE" },
-  { "name": "Bellshrine_02", "logic": "Ability_Silkspear" },
-  { "name": "Bellshrine_03", "logic": "Ability_Walljump" },
-  { "name": "Bellshrine_04", "logic": "Ability_Sprint" },
-  { "name": "Bellshrine_05", "logic": "Ability_Walljump + Ability_Sprint" },
-
-  // ── Mossberries ───────────────────────────────────────────────────────
-  { "name": "Mossberry_01", "logic": "TRUE" },
-  { "name": "Mossberry_02", "logic": "TRUE" },
-  { "name": "Mossberry_03", "logic": "Ability_Silkspear" },
-  { "name": "Mossberry_04", "logic": "Ability_Sprint" },
-  { "name": "Mossberry_05", "logic": "Ability_Walljump" },
-
-  // ── Pollip Bulbs ──────────────────────────────────────────────────────
-  { "name": "PollipBulb_01", "logic": "TRUE" },
-  { "name": "PollipBulb_02", "logic": "Ability_Walljump" },
-  { "name": "PollipBulb_03", "logic": "Ability_Silkspear + Ability_Walljump" }
+  {
+    "name": "Bellshrine_01",
+    "logic": "TRUE"
+  },
+  {
+    "name": "Bellshrine_02",
+    "logic": "TRUE"
+  },
+  {
+    "name": "Bellshrine_03",
+    "logic": "TRUE"
+  },
+  {
+    "name": "Bellshrine_05",
+    "logic": "TRUE"
+  },
+  {
+    "name": "Bellshrine_Coral",
+    "logic": "TRUE"
+  },
+  {
+    "name": "Bellshrine_Enclave",
+    "logic": "TRUE"
+  },
+  {
+    "name": "abandoned_town_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "abyss_04_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "abyss_08_Shrine Weaver Ability_Inspection",
+    "logic": "TRUE"
+  },
+  {
+    "name": "abyss_08_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "ant_04_left_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "ant_08_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "ant_20_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "ant_21_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "ant_merchant_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "ant_queen_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "aqueduct_01_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "aqueduct_05_Collectable Item Pickup - Tool Metal",
+    "logic": "TRUE"
+  },
+  {
+    "name": "aqueduct_05_caravan_Caravan Troup Member Short Pot_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "aqueduct_05_caravan_Caravan Troupe Hunter_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "aqueduct_05_caravan_Caravan Troupe Leader Fleatopia NPC_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "aqueduct_05_festival_Flea Games Host NPC_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "aqueduct_05_festival_Collectable Item Pickup Reward 2",
+    "logic": "TRUE"
+  },
+  {
+    "name": "aqueduct_05_festival_Collectable Item Pickup Reward 1",
+    "logic": "TRUE"
+  },
+  {
+    "name": "aqueduct_05_festival_Collectable Item Pickup Reward 3",
+    "logic": "TRUE"
+  },
+  {
+    "name": "aqueduct_05_festival_Flea Festival Pinata_Rewards",
+    "logic": "TRUE"
+  },
+  {
+    "name": "aqueduct_05_festival_Refill Inspect_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "aqueduct_06_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "arborium_05_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "arborium_07_Collectable Item Pickup Materium",
+    "logic": "TRUE"
+  },
+  {
+    "name": "arborium_07_Collectable Item Pickup Battle",
+    "logic": "TRUE"
+  },
+  {
+    "name": "arborium_09_Silk Spool_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "arborium_10_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "arborium_11_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "arborium_11_Map Machine_Unlock Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "aspid_01_Collectable Item Pickup (2)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bellshrine_coral_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_Quest_Board_Hand In Sequence",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_craw_court_summons_pin_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper (6)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper (3)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper (5)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper (2)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper (1)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper (4)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_08_Wisp Pyre Effigy_Summon Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_08_Lantern Item",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper (5)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper (3)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper (4)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper (6)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper (1)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper (2)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_cutscene_Cinematic Player_Cutscene Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_room_relic_Relic Dealer NPC_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "belltown_room_shellwood_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bellway_03_rosary_string_machine_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bellway_03_craw_court_summons_pin_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bellway_08_rosary_string_machine_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bellway_08_Memento Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bellway_aqueduct_rosary_string_machine_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bellway_centipede_arena_Bell Beast DefeatedCentipede NPC_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bellway_city_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bellway_city_Map Machine_Unlock Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bellway_peak_rosary_string_machine_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bellway_peak_02_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bellway_shadow_rosary_string_machine_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bellway_shadow_craw_court_summons_pin_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_01b_Mossberry Pickup_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_01c_rosary_string_machine_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_05_Silk Heart_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_05_boss_Silk Heart_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_05b_Mossberry Pickup_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_07_Collectable Item Pickup - Tool Metal",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_10_Caravan Troupe Leader Bone NPC_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_10_Caravan Troupe Hunter_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_10_Collectable Item Pickup Locket",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_10_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_10_Fixer Sitting Bone_10_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_11b_Silk Spool_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_12_Lady Bug Large_Convo",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_12_Collectable Item Pickup Pin",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_12_Ladybug Craft Pickup_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_15_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_17_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_18_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_18_Pilgrim Stomper Fight NPC_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_01_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_04b_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_05_Shrine Weaver Ability_Inspection",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_07_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_08_Silk Heart_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_08_boss_beastfly_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_10_Rosary Collector_Collect",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_10_room_Rosary Collector_Collect",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_10_room_Pilgrims Rest Shop_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_13_Silk Spool_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_14_Collectable Item Pickup (1)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_14_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_14b_Spine Floater Spine P (2)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_14b_Spine Floater Spine P (4)_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_15_rosary_string_machine_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_18b_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_20_Heart Piece_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_22_Mottled Ant Child NPC Hiding_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_22_Mottled Ant Child NPC_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_22_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_24_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_25_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_27_craw_court_summons_pin_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_lavachallenge_Heart Piece (1)_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bone_east_weavehome_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bonegrave_Mossberry Pickup_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bonetown_Fixer NPC Standing_Conversation",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bonetown_Quest_Board_Hand In Sequence",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bonetown_Mossberry Pickup_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bonetown_Rosary Collector_Collect",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bonetown_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "bonetown_Fixer Pilgrim Bench Repair_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "clover_01_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "clover_02c_Silkfly Cloud_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "clover_03_Silkfly Cloud_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "clover_05c_Silkfly Cloud_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "clover_06_Silkfly Cloud_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "clover_11_Silkfly Cloud_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "clover_16_Silkfly Cloud_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "clover_18_Silkfly Cloud_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "clover_21_Silkfly Cloud_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "cog_07_Silk Spool_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "cog_07_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "cog_10_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "cog_10_Song Knight Sleeping_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_02_rosary_string_machine_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_02_Collectable Item Pickup (1)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_03_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_19b_Heart Piece_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_23_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_29_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_32_Collectable Item Pickup - Tool Metal",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_33_Play Point_Play Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_33_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_33_Memento Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_35_Memento Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_36_Shell Shard Collectable Item Pickup Instant",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_37_Steel Sentinel_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_39_Pit Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_39_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_41_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_42_Rosary Collector_Collect",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_43_Memento Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_judge_arena_Caravan Troup Member Short Pot_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_judge_arena_Caravan Troupe Hunter_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_judge_arena_Caravan Troupe Leader Judge NPC_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_tower_01_Collectable Item Pickup Stand",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_tower_01_Collectable Item Pickup Heart",
+    "logic": "TRUE"
+  },
+  {
+    "name": "coral_tower_01_Collectable Item Pickup Fling",
+    "logic": "TRUE"
+  },
+  {
+    "name": "cradle_02_Map Machine (1)_Unlock Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "crawl_01_Collectable Item Pickup - Satchel",
+    "logic": "TRUE"
+  },
+  {
+    "name": "crawl_01_Collectable Item Pickup - Purse",
+    "logic": "TRUE"
+  },
+  {
+    "name": "crawl_02_Heart Piece_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "crawl_02_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "crawl_05_Shrine Weaver Ability_Inspection",
+    "logic": "TRUE"
+  },
+  {
+    "name": "crawl_09_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dock_01_rosary_string_machine_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dock_02_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dock_02b_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dock_03_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dock_03b_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dock_03c_Silk Spool_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dock_08_Heart Piece_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dock_11_Silkfly Cloud_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dock_11_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dock_12_Ballow Diving Bell NPC_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dock_13_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dust_01_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dust_06_Collectable Item SimpleKey",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dust_06_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dust_10_rosary_string_machine_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dust_10_craw_court_summons_pin_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dust_11_Grub Farmer NPC_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dust_11_craw_court_summons_pin (1)_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dust_11_craw_court_summons_pin_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dust_11_Grub Farmer Mimic_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dust_barb_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dust_chef_Return Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dust_shack_Dust Traders_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "dust_shack_Collectable Item Dustpilo",
+    "logic": "TRUE"
+  },
+  {
+    "name": "greymoor_01_rosary_string_machine_Behaviour (special)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "greymoor_02_Silk Spool_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "greymoor_05_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "greymoor_08_caravan_Caravan Troup Member Short Greymoor_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "greymoor_08_caravan_Caravan Troupe Hunter_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "greymoor_12_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "greymoor_15_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "greymoor_15b_Silkfly Cloud_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "greymoor_15b_Collectable Item Pickup (1)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "greymoor_15b_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "greymoor_16_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "greymoor_21_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "greymoor_22_Shrine Weaver Ability_Inspection",
+    "logic": "TRUE"
+  },
+  {
+    "name": "halfway_01_HH Bartender_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "halfway_01_Nuu_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "halfway_01_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "hang_03_top_Silk Spool_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "hang_06_bank_rosary_string_machine_Behaviour (special)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "hang_06_bank_Rosary Collector_Collect",
+    "logic": "TRUE"
+  },
+  {
+    "name": "hang_06_bank_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "hang_06_bank_Rosary Cannon Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "hang_06b_Map Machine_Unlock Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "hang_09_Craft Pickup_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "hang_10_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "hang_12_Last Conductor NPC_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "hang_12_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "hang_16_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "hang_17b_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_02_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_03_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_04_Map Machine (1)_Unlock Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_05_Heart Piece_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_08_Librarian_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_08_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_08_Collectable Item Pickup Librarian",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_09_Collectable Item Pickup (1)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_09_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_10_Collectable Item Pickup - Melody",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_11b_Silkfly Cloud_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_11b_Silk Spool_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_12_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_13_Re-Entry Pickup Upgrade",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_13_Re-Entry Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_13_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_13b_Collectable Item Pickup - Quill Purple_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_13b_Desk Inspect and Quill_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_13b_Collectable Item Pickup - Quill Red_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "library_16_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "memory_coral_tower_Coral King_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "memory_red_door_wakeInRedMemory Weaver_Wake Up",
+    "logic": "TRUE"
+  },
+  {
+    "name": "memory_red_door_wakeInRedMemory Root_Wake Up",
+    "logic": "TRUE"
+  },
+  {
+    "name": "memory_red_door_wakeInRedMemory Hive_Wake Up",
+    "logic": "TRUE"
+  },
+  {
+    "name": "memory_red_door_wakeInRedMemory Beast_Wake Up",
+    "logic": "TRUE"
+  },
+  {
+    "name": "mosstown_02_Shrine Weaver Ability_Inspection",
+    "logic": "TRUE"
+  },
+  {
+    "name": "mosstown_02_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "mosstown_02c_Moss Creep NPC_Conversation Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "mosstown_03_craw_court_summons_pin_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "peak_01_Silk Spool_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "peak_04c_Heart Piece_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "peak_06_Heart Piece_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "peak_07_NPC_NPC Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "peak_12_Webshot Scene_Repair webshot",
+    "logic": "TRUE"
+  },
+  {
+    "name": "peak_mask_maker_Peak Mask Maker_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "room_crowcourt_court_door_Door",
+    "logic": "TRUE"
+  },
+  {
+    "name": "room_crowcourt_02_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "room_crowcourt_02_Collectable Item Pickup Crawbell",
+    "logic": "TRUE"
+  },
+  {
+    "name": "room_diving_bell_Travel Sequence Control_Sequence",
+    "logic": "TRUE"
+  },
+  {
+    "name": "room_diving_bell_abyss_fixed_Travel Sequence Control_Sequence",
+    "logic": "TRUE"
+  },
+  {
+    "name": "room_forge_Collectable Item Pickup (1)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "room_forge_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "room_witch_Wood Witch_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shadow_02_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shadow_11_Collectable Item Pickup (1)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shadow_13_Heart Piece_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shadow_20_Collectable Item Pickup (1)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shadow_20_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shadow_24_Mapper Master NPC_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shadow_27_Sack Corpse Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shadow_28_Rosary Collector_Collect",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shadow_bilehaven_room_Collectable Item Pickup (1)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shadow_weavehome_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_01_Nectar Pickup_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_01_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_01b_rosary_string_machine_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_01b_craw_court_summons_pin_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_01b_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_02_Nectar Pickup_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_08c_rosary_string_machine_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_08c_rosary_string_machine_Behaviour (special)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_08c_craw_court_summons_pin_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_10_Shrine Weaver Ability_Inspection",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_10_Nectar Pickup_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_11b_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_13_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_14_Heart Piece_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_15_Nectar Pickup_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_20_Nectar Pickup_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_25_Collectable Item Pickup (1)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_25_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "shellwood_26_Nectar Pickup_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "slab_02_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "slab_04_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "slab_07_Rosary Collector_Collect",
+    "logic": "TRUE"
+  },
+  {
+    "name": "slab_10b_Shrine First Weaver NPC_Inspection",
+    "logic": "TRUE"
+  },
+  {
+    "name": "slab_12_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "slab_16b_Collectable Item Pickup - Broodmother Eye",
+    "logic": "TRUE"
+  },
+  {
+    "name": "slab_17_Heart Piece_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "slab_18_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "slab_22_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "slab_cell_quiet_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_01b_Map Machine (2)_Unlock Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_04_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_07_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_09_Heart Piece_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_09_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_09b_Gourmand Servant_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_19_entrance_Silk Spool_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_19_entrance_Map Machine (1)_Unlock Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_20_right_cutsceneEntry_Cutscene Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_24_Rosary Collector_Collect",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_26_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_28_Toll_machine_silk_ration_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_29_Toll_machine_silk_ration_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_enclave_Enclave Caretaker_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_enclave_Quest_Board_Hand In Sequence",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_enclave_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_enclave_Sherma Caretaker_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "song_tower_01_Silk Heart_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "sprintmaster_cave_Sprintmaster Runner_Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "tut_01_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "tut_04_Snail Shamans Set_Dialogue",
+    "logic": "TRUE"
+  },
+  {
+    "name": "under_03_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "under_07c_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "under_08_Collectable Item Pickup (1)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "under_08_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "under_10_Silk Spool_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "under_12_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "under_14_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "under_16_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "under_17_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "under_18_Shrine Weaver Ability_Inspection",
+    "logic": "TRUE"
+  },
+  {
+    "name": "under_18_Collectable Item Pickup (1)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "under_18_Shrine Weaver HarpoonDash_Inspection",
+    "logic": "TRUE"
+  },
+  {
+    "name": "under_19b_Collectable Item Pickup - Tool Metal",
+    "logic": "TRUE"
+  },
+  {
+    "name": "ward_01_Silk Spool_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "ward_01_Map Machine (1)_Unlock Behaviour",
+    "logic": "TRUE"
+  },
+  {
+    "name": "ward_02_Silk Heart_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "ward_02b_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "ward_03_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "ward_05_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "ward_07_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "weave_03_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "weave_05b_Heart Piece_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "weave_08_Silkfly Cloud_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "weave_08_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "weave_11_Silk Spool_Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "weave_14_Collectable Item Pickup (1)",
+    "logic": "TRUE"
+  },
+  {
+    "name": "wisp_02_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "wisp_03_Collectable Item Pickup",
+    "logic": "TRUE"
+  },
+  {
+    "name": "wisp_04_craw_court_summons_pin_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "wisp_05_Collectable Item Pickup - Tool Metal",
+    "logic": "TRUE"
+  },
+  {
+    "name": "wisp_06_Craft Pickup_FSM",
+    "logic": "TRUE"
+  },
+  {
+    "name": "wisp_07_Heart Piece_Heart Container Control",
+    "logic": "TRUE"
+  },
+  {
+    "name": "wisp_08_Collectable Item Pickup",
+    "logic": "TRUE"
+  }
 ]

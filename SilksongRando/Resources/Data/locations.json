@@ -1,116 +1,2674 @@
 [
-  // ── Ability pickup locations ───────────────────────────────────────────
-  // NOTE: scene names, gameObject names, FSM names, and triggerStates must be
-  // verified against the live game. Use the SceneDumper / LocationFinder tools
-  // from Silksong-Rando as reference for discovery.
-
   {
-    "name": "Silkspear_Pickup",
-    "scene": "Dungeon_01",
-    "locationType": "fsm",
-    "gameObject": "Silkspear Pickup",
-    "fsmName": "Item Give",
-    "triggerState": "Give Item"
-  },
-  {
-    "name": "Sprint_Pickup",
-    "scene": "Overworld_03",
-    "locationType": "fsm",
-    "gameObject": "Sprint Pickup",
-    "fsmName": "Item Give",
-    "triggerState": "Give Item"
-  },
-  {
-    "name": "Walljump_Pickup",
-    "scene": "Cave_02",
-    "locationType": "fsm",
-    "gameObject": "Walljump Pickup",
-    "fsmName": "Item Give",
-    "triggerState": "Give Item"
-  },
-  {
-    "name": "Needolin_NPC",
-    "scene": "Village_01",
-    "locationType": "fsm",
-    "gameObject": "Needolin NPC",
-    "fsmName": "Conversation",
-    "triggerState": "Give Item"
-  },
-  {
-    "name": "SilkSphere_Pickup",
-    "scene": "Dungeon_05",
+    "name": "abandoned_town_Collectable Item Pickup",
+    "scene": "abandoned_town",
     "locationType": "collectable",
-    "originalItemId": "ability_SilkSphere"
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Memento Surface"
   },
   {
-    "name": "Brolly_Pickup",
-    "scene": "Cave_04",
-    "locationType": "fsm",
-    "gameObject": "Brolly NPC",
-    "fsmName": "Give Brolly",
-    "triggerState": "Give"
+    "name": "abyss_04_Collectable Item Pickup",
+    "scene": "abyss_04",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Ancient Egg Abyss Middle"
   },
   {
-    "name": "Faydown_DJ",
-    "scene": "Faydown_Hub",
+    "name": "abyss_08_Shrine Weaver Ability_Inspection",
+    "scene": "abyss_08",
     "locationType": "fsm",
-    "gameObject": "DJ NPC",
+    "gameObject": "Shrine Weaver Ability",
+    "fsmName": "Inspection",
+    "triggerState": "Ability Collected"
+  },
+  {
+    "name": "abyss_08_Collectable Item Pickup",
+    "scene": "abyss_08",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Farsight"
+  },
+  {
+    "name": "ant_04_left_Collectable Item Pickup",
+    "scene": "ant_04_left",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Medium"
+  },
+  {
+    "name": "ant_08_Collectable Item Pickup",
+    "scene": "ant_08",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Vintage Nectar"
+  },
+  {
+    "name": "ant_20_Collectable Item Pickup",
+    "scene": "ant_20",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "ant_21_Collectable Item Pickup",
+    "scene": "ant_21",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Curve Claws"
+  },
+  {
+    "name": "ant_merchant_Collectable Item Pickup",
+    "scene": "ant_merchant",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Fractured Mask"
+  },
+  {
+    "name": "ant_queen_Collectable Item Pickup",
+    "scene": "ant_queen",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Hunter Heart"
+  },
+  {
+    "name": "aqueduct_01_Collectable Item Pickup",
+    "scene": "aqueduct_01",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "aqueduct_05_Collectable Item Pickup - Tool Metal",
+    "scene": "aqueduct_05",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup - Tool Metal",
+    "originalItemId": "Tool Metal"
+  },
+  {
+    "name": "aqueduct_05_caravan_Caravan Troup Member Short Pot_Behaviour",
+    "scene": "aqueduct_05_caravan",
+    "locationType": "fsm",
+    "gameObject": "Caravan Troup Member Short Pot",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Brew"
+  },
+  {
+    "name": "aqueduct_05_caravan_Caravan Troupe Hunter_Dialogue",
+    "scene": "aqueduct_05_caravan",
+    "locationType": "fsm",
+    "gameObject": "Caravan Troupe Hunter",
+    "fsmName": "Dialogue",
+    "triggerState": "All Fleas Collected"
+  },
+  {
+    "name": "aqueduct_05_caravan_Caravan Troupe Leader Fleatopia NPC_Dialogue",
+    "scene": "aqueduct_05_caravan",
+    "locationType": "fsm",
+    "gameObject": "Caravan Troupe Leader Fleatopia NPC",
+    "fsmName": "Dialogue",
+    "triggerState": "Delivery Quest Reward"
+  },
+  {
+    "name": "aqueduct_05_festival_Flea Games Host NPC_Control",
+    "scene": "aqueduct_05_festival",
+    "locationType": "fsm",
+    "gameObject": "Flea Games Host NPC",
+    "fsmName": "Control",
+    "triggerState": "Spirit Give Memento"
+  },
+  {
+    "name": "aqueduct_05_festival_Collectable Item Pickup Reward 2",
+    "scene": "aqueduct_05_festival",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup Reward 2",
+    "originalItemId": "Rosary_Set_Medium"
+  },
+  {
+    "name": "aqueduct_05_festival_Collectable Item Pickup Reward 1",
+    "scene": "aqueduct_05_festival",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup Reward 1",
+    "originalItemId": "Rosary_Set_Small"
+  },
+  {
+    "name": "aqueduct_05_festival_Collectable Item Pickup Reward 3",
+    "scene": "aqueduct_05_festival",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup Reward 3",
+    "originalItemId": "Pale_Oil"
+  },
+  {
+    "name": "aqueduct_05_festival_Flea Festival Pinata_Rewards",
+    "scene": "aqueduct_05_festival",
+    "locationType": "fsm",
+    "gameObject": "Flea Festival Pinata",
+    "fsmName": "Rewards",
+    "triggerState": "Reward 1"
+  },
+  {
+    "name": "aqueduct_05_festival_Refill Inspect_FSM",
+    "scene": "aqueduct_05_festival",
+    "locationType": "fsm",
+    "gameObject": "Refill Inspect",
+    "fsmName": "FSM",
+    "triggerState": "Give Brew"
+  },
+  {
+    "name": "aqueduct_06_Collectable Item Pickup",
+    "scene": "aqueduct_06",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Maggot Charm"
+  },
+  {
+    "name": "arborium_05_Collectable Item Pickup",
+    "scene": "arborium_05",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "arborium_07_Collectable Item Pickup Materium",
+    "scene": "arborium_07",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup Materium",
+    "originalItemId": "Materium"
+  },
+  {
+    "name": "arborium_07_Collectable Item Pickup Battle",
+    "scene": "arborium_07",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup Battle",
+    "originalItemId": "Lightning Rod"
+  },
+  {
+    "name": "arborium_09_Silk Spool_Control",
+    "scene": "arborium_09",
+    "locationType": "fsm",
+    "gameObject": "Silk Spool",
+    "fsmName": "Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "arborium_10_Collectable Item Pickup",
+    "scene": "arborium_10",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Cog Heart Pieces"
+  },
+  {
+    "name": "arborium_11_Collectable Item Pickup",
+    "scene": "arborium_11",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Shard Pouch"
+  },
+  {
+    "name": "arborium_11_Map Machine_Unlock Behaviour",
+    "scene": "arborium_11",
+    "locationType": "fsm",
+    "gameObject": "Map Machine",
+    "fsmName": "Unlock Behaviour",
+    "triggerState": "Get Item"
+  },
+  {
+    "name": "aspid_01_Collectable Item Pickup (2)",
+    "scene": "aspid_01",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup (2)",
+    "originalItemId": "Seal Chit Aspid_01"
+  },
+  {
+    "name": "bellshrine_coral_Collectable Item Pickup",
+    "scene": "bellshrine_coral",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Simple Key"
+  },
+  {
+    "name": "belltown_Quest_Board_Hand In Sequence",
+    "scene": "belltown",
+    "locationType": "fsm",
+    "gameObject": "Quest_Board",
+    "fsmName": "Hand In Sequence",
+    "triggerState": "Donation Sequence Reward"
+  },
+  {
+    "name": "belltown_craw_court_summons_pin_FSM",
+    "scene": "belltown",
+    "locationType": "fsm",
+    "gameObject": "craw_court_summons_pin",
+    "fsmName": "FSM",
+    "triggerState": "Set Pickup"
+  },
+  {
+    "name": "belltown_Collectable Item Pickup",
+    "scene": "belltown",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper (6)_Control",
+    "scene": "belltown_04",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper (6)",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper (3)_Control",
+    "scene": "belltown_04",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper (3)",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper (5)_Control",
+    "scene": "belltown_04",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper (5)",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper (2)_Control",
+    "scene": "belltown_04",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper (2)",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper (1)_Control",
+    "scene": "belltown_04",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper (1)",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper (4)_Control",
+    "scene": "belltown_04",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper (4)",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_04_Quest Bell Dropper_Control",
+    "scene": "belltown_04",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_08_Wisp Pyre Effigy_Summon Control",
+    "scene": "belltown_08",
+    "locationType": "fsm",
+    "gameObject": "Wisp Pyre Effigy",
+    "fsmName": "Summon Control",
+    "triggerState": "Activate Collectable"
+  },
+  {
+    "name": "belltown_08_Lantern Item",
+    "scene": "belltown_08",
+    "locationType": "collectable",
+    "gameObject": "Lantern Item",
+    "originalItemId": "Wisp Lantern"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper (5)_Control",
+    "scene": "belltown_basement_03",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper (5)",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper_Control",
+    "scene": "belltown_basement_03",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper (3)_Control",
+    "scene": "belltown_basement_03",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper (3)",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper (4)_Control",
+    "scene": "belltown_basement_03",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper (4)",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper (6)_Control",
+    "scene": "belltown_basement_03",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper (6)",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper (1)_Control",
+    "scene": "belltown_basement_03",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper (1)",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_basement_03_Quest Bell Dropper (2)_Control",
+    "scene": "belltown_basement_03",
+    "locationType": "fsm",
+    "gameObject": "Quest Bell Dropper (2)",
+    "fsmName": "Control",
+    "triggerState": "Quest Pickup"
+  },
+  {
+    "name": "belltown_cutscene_Cinematic Player_Cutscene Control",
+    "scene": "belltown_cutscene",
+    "locationType": "fsm",
+    "gameObject": "Cinematic Player",
+    "fsmName": "Cutscene Control",
+    "triggerState": "Give Control"
+  },
+  {
+    "name": "belltown_room_relic_Relic Dealer NPC_Dialogue",
+    "scene": "belltown_room_relic",
+    "locationType": "fsm",
+    "gameObject": "Relic Dealer NPC",
+    "fsmName": "Dialogue",
+    "triggerState": "Give Relics?"
+  },
+  {
+    "name": "belltown_room_shellwood_Collectable Item Pickup",
+    "scene": "belltown_room_shellwood",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Harpoon"
+  },
+  {
+    "name": "bellway_03_rosary_string_machine_Behaviour",
+    "scene": "bellway_03",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "bellway_03_craw_court_summons_pin_FSM",
+    "scene": "bellway_03",
+    "locationType": "fsm",
+    "gameObject": "craw_court_summons_pin",
+    "fsmName": "FSM",
+    "triggerState": "Set Pickup"
+  },
+  {
+    "name": "bellway_08_rosary_string_machine_Behaviour",
+    "scene": "bellway_08",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "bellway_08_Memento Pickup",
+    "scene": "bellway_08",
+    "locationType": "collectable",
+    "gameObject": "Memento Pickup",
+    "originalItemId": "Memento Garmond"
+  },
+  {
+    "name": "bellway_aqueduct_rosary_string_machine_Behaviour",
+    "scene": "bellway_aqueduct",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "bellway_centipede_arena_Bell Beast DefeatedCentipede NPC_Control",
+    "scene": "bellway_centipede_arena",
+    "locationType": "fsm",
+    "gameObject": "Bell Beast DefeatedCentipede NPC",
+    "fsmName": "Control",
+    "triggerState": "Get Item Msg"
+  },
+  {
+    "name": "bellway_city_Collectable Item Pickup",
+    "scene": "bellway_city",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "bellway_city_Map Machine_Unlock Behaviour",
+    "scene": "bellway_city",
+    "locationType": "fsm",
+    "gameObject": "Map Machine",
+    "fsmName": "Unlock Behaviour",
+    "triggerState": "Get Item"
+  },
+  {
+    "name": "bellway_peak_rosary_string_machine_Behaviour",
+    "scene": "bellway_peak",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "bellway_peak_02_Collectable Item Pickup",
+    "scene": "bellway_peak_02",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Revenge Crystal"
+  },
+  {
+    "name": "bellway_shadow_rosary_string_machine_Behaviour",
+    "scene": "bellway_shadow",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "bellway_shadow_craw_court_summons_pin_FSM",
+    "scene": "bellway_shadow",
+    "locationType": "fsm",
+    "gameObject": "craw_court_summons_pin",
+    "fsmName": "FSM",
+    "triggerState": "Set Pickup"
+  },
+  {
+    "name": "bone_01b_Mossberry Pickup_Control",
+    "scene": "bone_01b",
+    "locationType": "fsm",
+    "gameObject": "Mossberry Pickup",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "bone_01c_rosary_string_machine_Behaviour",
+    "scene": "bone_01c",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "bone_05_Silk Heart_Control",
+    "scene": "bone_05",
+    "locationType": "fsm",
+    "gameObject": "Silk Heart",
+    "fsmName": "Control",
+    "triggerState": "Collect End"
+  },
+  {
+    "name": "bone_05_boss_Silk Heart_Control",
+    "scene": "bone_05_boss",
+    "locationType": "fsm",
+    "gameObject": "Silk Heart",
+    "fsmName": "Control",
+    "triggerState": "Collect End"
+  },
+  {
+    "name": "bone_05b_Mossberry Pickup_Control",
+    "scene": "bone_05b",
+    "locationType": "fsm",
+    "gameObject": "Mossberry Pickup",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "bone_07_Collectable Item Pickup - Tool Metal",
+    "scene": "bone_07",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup - Tool Metal",
+    "originalItemId": "Tool Metal"
+  },
+  {
+    "name": "bone_10_Caravan Troupe Leader Bone NPC_Dialogue",
+    "scene": "bone_10",
+    "locationType": "fsm",
+    "gameObject": "Caravan Troupe Leader Bone NPC",
+    "fsmName": "Dialogue",
+    "triggerState": "Collected Any?"
+  },
+  {
+    "name": "bone_10_Caravan Troupe Hunter_Dialogue",
+    "scene": "bone_10",
+    "locationType": "fsm",
+    "gameObject": "Caravan Troupe Hunter",
+    "fsmName": "Dialogue",
+    "triggerState": "All Fleas Collected"
+  },
+  {
+    "name": "bone_10_Collectable Item Pickup Locket",
+    "scene": "bone_10",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup Locket",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "bone_10_Collectable Item Pickup",
+    "scene": "bone_10",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "bone_10_Fixer Sitting Bone_10_Dialogue",
+    "scene": "bone_10",
+    "locationType": "fsm",
+    "gameObject": "Fixer Sitting Bone_10",
+    "fsmName": "Dialogue",
+    "triggerState": "Delivery Quest Reward"
+  },
+  {
+    "name": "bone_11b_Silk Spool_Control",
+    "scene": "bone_11b",
+    "locationType": "fsm",
+    "gameObject": "Silk Spool",
+    "fsmName": "Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "bone_12_Lady Bug Large_Convo",
+    "scene": "bone_12",
+    "locationType": "fsm",
+    "gameObject": "Lady Bug Large",
+    "fsmName": "Convo",
+    "triggerState": "Reward 1"
+  },
+  {
+    "name": "bone_12_Collectable Item Pickup Pin",
+    "scene": "bone_12",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup Pin",
+    "originalItemId": "Straight Pin"
+  },
+  {
+    "name": "bone_12_Ladybug Craft Pickup_FSM",
+    "scene": "bone_12",
+    "locationType": "fsm",
+    "gameObject": "Ladybug Craft Pickup",
+    "fsmName": "FSM",
+    "triggerState": "Get Item"
+  },
+  {
+    "name": "bone_15_Collectable Item Pickup",
+    "scene": "bone_15",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Skull King Fragment"
+  },
+  {
+    "name": "bone_17_Collectable Item Pickup",
+    "scene": "bone_17",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Bone Necklace"
+  },
+  {
+    "name": "bone_18_Collectable Item Pickup",
+    "scene": "bone_18",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "bone_18_Pilgrim Stomper Fight NPC_Dialogue",
+    "scene": "bone_18",
+    "locationType": "fsm",
+    "gameObject": "Pilgrim Stomper Fight NPC",
+    "fsmName": "Dialogue",
+    "triggerState": "Give Prompt"
+  },
+  {
+    "name": "bone_east_01_Collectable Item Pickup",
+    "scene": "bone_east_01",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Shard Pouch"
+  },
+  {
+    "name": "bone_east_04b_Collectable Item Pickup",
+    "scene": "bone_east_04b",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "bone_east_05_Shrine Weaver Ability_Inspection",
+    "scene": "bone_east_05",
+    "locationType": "fsm",
+    "gameObject": "Shrine Weaver Ability",
+    "fsmName": "Inspection",
+    "triggerState": "Ability Collected"
+  },
+  {
+    "name": "bone_east_07_Collectable Item Pickup",
+    "scene": "bone_east_07",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Weighted Anklet"
+  },
+  {
+    "name": "bone_east_08_Silk Heart_Control",
+    "scene": "bone_east_08",
+    "locationType": "fsm",
+    "gameObject": "Silk Heart",
+    "fsmName": "Control",
+    "triggerState": "Collect End"
+  },
+  {
+    "name": "bone_east_08_boss_beastfly_Collectable Item Pickup",
+    "scene": "bone_east_08_boss_beastfly",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Beastfly Remains"
+  },
+  {
+    "name": "bone_east_10_Rosary Collector_Collect",
+    "scene": "bone_east_10",
+    "locationType": "fsm",
+    "gameObject": "Rosary Collector",
+    "fsmName": "Collect",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "bone_east_10_room_Rosary Collector_Collect",
+    "scene": "bone_east_10_room",
+    "locationType": "fsm",
+    "gameObject": "Rosary Collector",
+    "fsmName": "Collect",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "bone_east_10_room_Pilgrims Rest Shop_Dialogue",
+    "scene": "bone_east_10_room",
+    "locationType": "fsm",
+    "gameObject": "Pilgrims Rest Shop",
+    "fsmName": "Dialogue",
+    "triggerState": "Delivery Quest Reward"
+  },
+  {
+    "name": "bone_east_13_Silk Spool_Control",
+    "scene": "bone_east_13",
+    "locationType": "fsm",
+    "gameObject": "Silk Spool",
+    "fsmName": "Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "bone_east_14_Collectable Item Pickup (1)",
+    "scene": "bone_east_14",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup (1)",
+    "originalItemId": "Bone Record Bone_East_14"
+  },
+  {
+    "name": "bone_east_14_Collectable Item Pickup",
+    "scene": "bone_east_14",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Small"
+  },
+  {
+    "name": "bone_east_14b_Spine Floater Spine P (2)_Control",
+    "scene": "bone_east_14b",
+    "locationType": "fsm",
+    "gameObject": "Spine Floater Spine P (2)",
+    "fsmName": "Control",
+    "triggerState": "Spawn Pickup"
+  },
+  {
+    "name": "bone_east_14b_Spine Floater Spine P (4)_Control",
+    "scene": "bone_east_14b",
+    "locationType": "fsm",
+    "gameObject": "Spine Floater Spine P (4)",
+    "fsmName": "Control",
+    "triggerState": "Spawn Pickup"
+  },
+  {
+    "name": "bone_east_15_rosary_string_machine_Behaviour",
+    "scene": "bone_east_15",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "bone_east_18b_Collectable Item Pickup",
+    "scene": "bone_east_18b",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Ant Trapper Item"
+  },
+  {
+    "name": "bone_east_20_Heart Piece_Heart Container Control",
+    "scene": "bone_east_20",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "bone_east_22_Mottled Ant Child NPC Hiding_Dialogue",
+    "scene": "bone_east_22",
+    "locationType": "fsm",
+    "gameObject": "Mottled Ant Child NPC Hiding",
+    "fsmName": "Dialogue",
+    "triggerState": "Give Tool?"
+  },
+  {
+    "name": "bone_east_22_Mottled Ant Child NPC_Dialogue",
+    "scene": "bone_east_22",
+    "locationType": "fsm",
+    "gameObject": "Mottled Ant Child NPC",
+    "fsmName": "Dialogue",
+    "triggerState": "Give Tool?"
+  },
+  {
+    "name": "bone_east_22_Collectable Item Pickup",
+    "scene": "bone_east_22",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Curve Claws Upgraded"
+  },
+  {
+    "name": "bone_east_24_Collectable Item Pickup",
+    "scene": "bone_east_24",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Huge_White"
+  },
+  {
+    "name": "bone_east_25_Collectable Item Pickup",
+    "scene": "bone_east_25",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "bone_east_27_craw_court_summons_pin_FSM",
+    "scene": "bone_east_27",
+    "locationType": "fsm",
+    "gameObject": "craw_court_summons_pin",
+    "fsmName": "FSM",
+    "triggerState": "Set Pickup"
+  },
+  {
+    "name": "bone_east_lavachallenge_Heart Piece (1)_Heart Container Control",
+    "scene": "bone_east_lavachallenge",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece (1)",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "bone_east_weavehome_Collectable Item Pickup",
+    "scene": "bone_east_weavehome",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Weaver Record Sprint_Challenge"
+  },
+  {
+    "name": "bonegrave_Mossberry Pickup_Control",
+    "scene": "bonegrave",
+    "locationType": "fsm",
+    "gameObject": "Mossberry Pickup",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "bonetown_Fixer NPC Standing_Conversation",
+    "scene": "bonetown",
+    "locationType": "fsm",
+    "gameObject": "Fixer NPC Standing",
     "fsmName": "Conversation",
-    "triggerState": "Give Item"
-  },
-
-  // ── Melody locations ───────────────────────────────────────────────────
-  {
-    "name": "Melody_Vault_Location",
-    "scene": "Vault_Boss",
-    "locationType": "fsm",
-    "gameObject": "Vault Melody Cylinder",
-    "fsmName": "Give Melody",
-    "triggerState": "Give"
+    "triggerState": "Statue Reward"
   },
   {
-    "name": "Melody_Architect_Location",
-    "scene": "Architect_Boss",
+    "name": "bonetown_Quest_Board_Hand In Sequence",
+    "scene": "bonetown",
     "locationType": "fsm",
-    "gameObject": "Architect Melody Cylinder",
-    "fsmName": "Give Melody",
-    "triggerState": "Give"
+    "gameObject": "Quest_Board",
+    "fsmName": "Hand In Sequence",
+    "triggerState": "Donation Sequence Reward"
   },
   {
-    "name": "Melody_Conductor_Location",
-    "scene": "Conductor_Boss",
+    "name": "bonetown_Mossberry Pickup_Control",
+    "scene": "bonetown",
     "locationType": "fsm",
-    "gameObject": "Conductor Melody Cylinder",
-    "fsmName": "Give Melody",
-    "triggerState": "Give"
+    "gameObject": "Mossberry Pickup",
+    "fsmName": "Control",
+    "triggerState": "Collect"
   },
-
-  // ── Heart Pieces ──────────────────────────────────────────────────────
-  { "name": "HeartPiece_01", "scene": "Overworld_01", "locationType": "collectable", "originalItemId": "HeartPiece_01" },
-  { "name": "HeartPiece_02", "scene": "Cave_01",      "locationType": "collectable", "originalItemId": "HeartPiece_02" },
-  { "name": "HeartPiece_03", "scene": "Dungeon_02",   "locationType": "collectable", "originalItemId": "HeartPiece_03" },
-  { "name": "HeartPiece_04", "scene": "Overworld_04", "locationType": "collectable", "originalItemId": "HeartPiece_04" },
-  { "name": "HeartPiece_05", "scene": "Village_02",   "locationType": "collectable", "originalItemId": "HeartPiece_05" },
-  { "name": "HeartPiece_06", "scene": "Cave_03",      "locationType": "collectable", "originalItemId": "HeartPiece_06" },
-  { "name": "HeartPiece_07", "scene": "Dungeon_04",   "locationType": "collectable", "originalItemId": "HeartPiece_07" },
-  { "name": "HeartPiece_08", "scene": "Overworld_06", "locationType": "collectable", "originalItemId": "HeartPiece_08" },
-
-  // ── Bellshrines ───────────────────────────────────────────────────────
-  { "name": "Bellshrine_01", "scene": "Overworld_02", "locationType": "fsm", "gameObject": "Bellshrine", "fsmName": "Bell Shrine Sequence", "triggerState": "Give Reward" },
-  { "name": "Bellshrine_02", "scene": "Cave_01",      "locationType": "fsm", "gameObject": "Bellshrine", "fsmName": "Bell Shrine Sequence", "triggerState": "Give Reward" },
-  { "name": "Bellshrine_03", "scene": "Dungeon_03",   "locationType": "fsm", "gameObject": "Bellshrine", "fsmName": "Bell Shrine Sequence", "triggerState": "Give Reward" },
-  { "name": "Bellshrine_04", "scene": "Village_01",   "locationType": "fsm", "gameObject": "Bellshrine", "fsmName": "Bell Shrine Sequence", "triggerState": "Give Reward" },
-  { "name": "Bellshrine_05", "scene": "Overworld_05", "locationType": "fsm", "gameObject": "Bellshrine", "fsmName": "Bell Shrine Sequence", "triggerState": "Give Reward" },
-
-  // ── Mossberries ───────────────────────────────────────────────────────
-  { "name": "Mossberry_01", "scene": "Overworld_01", "locationType": "collectable", "originalItemId": "Mossberry_01" },
-  { "name": "Mossberry_02", "scene": "Overworld_02", "locationType": "collectable", "originalItemId": "Mossberry_02" },
-  { "name": "Mossberry_03", "scene": "Cave_01",      "locationType": "collectable", "originalItemId": "Mossberry_03" },
-  { "name": "Mossberry_04", "scene": "Cave_02",      "locationType": "collectable", "originalItemId": "Mossberry_04" },
-  { "name": "Mossberry_05", "scene": "Dungeon_01",   "locationType": "collectable", "originalItemId": "Mossberry_05" },
-
-  // ── Pollip Bulbs ──────────────────────────────────────────────────────
-  { "name": "PollipBulb_01", "scene": "Overworld_01", "locationType": "collectable", "originalItemId": "PollipBulb_01" },
-  { "name": "PollipBulb_02", "scene": "Cave_03",      "locationType": "collectable", "originalItemId": "PollipBulb_02" },
-  { "name": "PollipBulb_03", "scene": "Dungeon_02",   "locationType": "collectable", "originalItemId": "PollipBulb_03" }
+  {
+    "name": "bonetown_Rosary Collector_Collect",
+    "scene": "bonetown",
+    "locationType": "fsm",
+    "gameObject": "Rosary Collector",
+    "fsmName": "Collect",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "bonetown_Collectable Item Pickup",
+    "scene": "bonetown",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Weaver Totem Bonetown_upper_room"
+  },
+  {
+    "name": "bonetown_Fixer Pilgrim Bench Repair_Dialogue",
+    "scene": "bonetown",
+    "locationType": "fsm",
+    "gameObject": "Fixer Pilgrim Bench Repair",
+    "fsmName": "Dialogue",
+    "triggerState": "Delivery Quest Reward"
+  },
+  {
+    "name": "clover_01_Collectable Item Pickup",
+    "scene": "clover_01",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Clover Heart"
+  },
+  {
+    "name": "clover_02c_Silkfly Cloud_Control",
+    "scene": "clover_02c",
+    "locationType": "fsm",
+    "gameObject": "Silkfly Cloud",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "clover_03_Silkfly Cloud_Control",
+    "scene": "clover_03",
+    "locationType": "fsm",
+    "gameObject": "Silkfly Cloud",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "clover_05c_Silkfly Cloud_Control",
+    "scene": "clover_05c",
+    "locationType": "fsm",
+    "gameObject": "Silkfly Cloud",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "clover_06_Silkfly Cloud_Control",
+    "scene": "clover_06",
+    "locationType": "fsm",
+    "gameObject": "Silkfly Cloud",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "clover_11_Silkfly Cloud_Control",
+    "scene": "clover_11",
+    "locationType": "fsm",
+    "gameObject": "Silkfly Cloud",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "clover_16_Silkfly Cloud_Control",
+    "scene": "clover_16",
+    "locationType": "fsm",
+    "gameObject": "Silkfly Cloud",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "clover_18_Silkfly Cloud_Control",
+    "scene": "clover_18",
+    "locationType": "fsm",
+    "gameObject": "Silkfly Cloud",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "clover_21_Silkfly Cloud_Control",
+    "scene": "clover_21",
+    "locationType": "fsm",
+    "gameObject": "Silkfly Cloud",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "cog_07_Silk Spool_Control",
+    "scene": "cog_07",
+    "locationType": "fsm",
+    "gameObject": "Silk Spool",
+    "fsmName": "Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "cog_07_Collectable Item Pickup",
+    "scene": "cog_07",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Pristine Core"
+  },
+  {
+    "name": "cog_10_Collectable Item Pickup",
+    "scene": "cog_10",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Shard Pouch"
+  },
+  {
+    "name": "cog_10_Song Knight Sleeping_Control",
+    "scene": "cog_10",
+    "locationType": "fsm",
+    "gameObject": "Song Knight Sleeping",
+    "fsmName": "Control",
+    "triggerState": "Give Heart Prompt"
+  },
+  {
+    "name": "coral_02_rosary_string_machine_Behaviour",
+    "scene": "coral_02",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "coral_02_Collectable Item Pickup (1)",
+    "scene": "coral_02",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup (1)",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "coral_03_Collectable Item Pickup",
+    "scene": "coral_03",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "coral_19b_Heart Piece_Heart Container Control",
+    "scene": "coral_19b",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "coral_23_Collectable Item Pickup",
+    "scene": "coral_23",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "coral_29_Collectable Item Pickup",
+    "scene": "coral_29",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Zap Imbuement"
+  },
+  {
+    "name": "coral_32_Collectable Item Pickup - Tool Metal",
+    "scene": "coral_32",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup - Tool Metal",
+    "originalItemId": "Tool Metal"
+  },
+  {
+    "name": "coral_33_Play Point_Play Control",
+    "scene": "coral_33",
+    "locationType": "fsm",
+    "gameObject": "Play Point",
+    "fsmName": "Play Control",
+    "triggerState": "Give Anim"
+  },
+  {
+    "name": "coral_33_Collectable Item Pickup",
+    "scene": "coral_33",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Magnetite Dice"
+  },
+  {
+    "name": "coral_33_Memento Pickup",
+    "scene": "coral_33",
+    "locationType": "collectable",
+    "gameObject": "Memento Pickup",
+    "originalItemId": "Memento Garmond"
+  },
+  {
+    "name": "coral_35_Memento Pickup",
+    "scene": "coral_35",
+    "locationType": "collectable",
+    "gameObject": "Memento Pickup",
+    "originalItemId": "Memento Garmond"
+  },
+  {
+    "name": "coral_36_Shell Shard Collectable Item Pickup Instant",
+    "scene": "coral_36",
+    "locationType": "collectable",
+    "gameObject": "Shell Shard Collectable Item Pickup Instant",
+    "originalItemId": "Great Shard"
+  },
+  {
+    "name": "coral_37_Steel Sentinel_Control",
+    "scene": "coral_37",
+    "locationType": "fsm",
+    "gameObject": "Steel Sentinel",
+    "fsmName": "Control",
+    "triggerState": "Give Reward"
+  },
+  {
+    "name": "coral_39_Pit Pickup",
+    "scene": "coral_39",
+    "locationType": "collectable",
+    "gameObject": "Pit Pickup",
+    "originalItemId": "Grey Memento"
+  },
+  {
+    "name": "coral_39_Collectable Item Pickup",
+    "scene": "coral_39",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Grey Memento"
+  },
+  {
+    "name": "coral_41_Collectable Item Pickup",
+    "scene": "coral_41",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Coral Ingredient"
+  },
+  {
+    "name": "coral_42_Rosary Collector_Collect",
+    "scene": "coral_42",
+    "locationType": "fsm",
+    "gameObject": "Rosary Collector",
+    "fsmName": "Collect",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "coral_43_Memento Pickup",
+    "scene": "coral_43",
+    "locationType": "collectable",
+    "gameObject": "Memento Pickup",
+    "originalItemId": "Memento Garmond"
+  },
+  {
+    "name": "coral_judge_arena_Caravan Troup Member Short Pot_Behaviour",
+    "scene": "coral_judge_arena",
+    "locationType": "fsm",
+    "gameObject": "Caravan Troup Member Short Pot",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Brew"
+  },
+  {
+    "name": "coral_judge_arena_Caravan Troupe Hunter_Dialogue",
+    "scene": "coral_judge_arena",
+    "locationType": "fsm",
+    "gameObject": "Caravan Troupe Hunter",
+    "fsmName": "Dialogue",
+    "triggerState": "All Fleas Collected"
+  },
+  {
+    "name": "coral_judge_arena_Caravan Troupe Leader Judge NPC_Dialogue",
+    "scene": "coral_judge_arena",
+    "locationType": "fsm",
+    "gameObject": "Caravan Troupe Leader Judge NPC",
+    "fsmName": "Dialogue",
+    "triggerState": "Reward Dlg"
+  },
+  {
+    "name": "coral_tower_01_Collectable Item Pickup Stand",
+    "scene": "coral_tower_01",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup Stand",
+    "originalItemId": "Conch Drill"
+  },
+  {
+    "name": "coral_tower_01_Collectable Item Pickup Heart",
+    "scene": "coral_tower_01",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup Heart",
+    "originalItemId": "Coral Heart"
+  },
+  {
+    "name": "coral_tower_01_Collectable Item Pickup Fling",
+    "scene": "coral_tower_01",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup Fling",
+    "originalItemId": "Conch Drill"
+  },
+  {
+    "name": "cradle_02_Map Machine (1)_Unlock Behaviour",
+    "scene": "cradle_02",
+    "locationType": "fsm",
+    "gameObject": "Map Machine (1)",
+    "fsmName": "Unlock Behaviour",
+    "triggerState": "Get Item"
+  },
+  {
+    "name": "crawl_01_Collectable Item Pickup - Satchel",
+    "scene": "crawl_01",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup - Satchel",
+    "originalItemId": "Shell Satchel"
+  },
+  {
+    "name": "crawl_01_Collectable Item Pickup - Purse",
+    "scene": "crawl_01",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup - Purse",
+    "originalItemId": "Dead Mans Purse"
+  },
+  {
+    "name": "crawl_02_Heart Piece_Heart Container Control",
+    "scene": "crawl_02",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "crawl_02_Collectable Item Pickup",
+    "scene": "crawl_02",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "crawl_05_Shrine Weaver Ability_Inspection",
+    "scene": "crawl_05",
+    "locationType": "fsm",
+    "gameObject": "Shrine Weaver Ability",
+    "fsmName": "Inspection",
+    "triggerState": "Ability Collected"
+  },
+  {
+    "name": "crawl_09_Collectable Item Pickup",
+    "scene": "crawl_09",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "dock_01_rosary_string_machine_Behaviour",
+    "scene": "dock_01",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "dock_02_Collectable Item Pickup",
+    "scene": "dock_02",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Shard Pouch"
+  },
+  {
+    "name": "dock_02b_Collectable Item Pickup",
+    "scene": "dock_02b",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Flintstone"
+  },
+  {
+    "name": "dock_03_Collectable Item Pickup",
+    "scene": "dock_03",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Tool Metal"
+  },
+  {
+    "name": "dock_03b_Collectable Item Pickup",
+    "scene": "dock_03b",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Bell Bind"
+  },
+  {
+    "name": "dock_03c_Silk Spool_Control",
+    "scene": "dock_03c",
+    "locationType": "fsm",
+    "gameObject": "Silk Spool",
+    "fsmName": "Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "dock_08_Heart Piece_Heart Container Control",
+    "scene": "dock_08",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "dock_11_Silkfly Cloud_Control",
+    "scene": "dock_11",
+    "locationType": "fsm",
+    "gameObject": "Silkfly Cloud",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "dock_11_Collectable Item Pickup",
+    "scene": "dock_11",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Great Shard"
+  },
+  {
+    "name": "dock_12_Ballow Diving Bell NPC_Dialogue",
+    "scene": "dock_12",
+    "locationType": "fsm",
+    "gameObject": "Ballow Diving Bell NPC",
+    "fsmName": "Dialogue",
+    "triggerState": "Given Key?"
+  },
+  {
+    "name": "dock_13_Collectable Item Pickup",
+    "scene": "dock_13",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "dust_01_Collectable Item Pickup",
+    "scene": "dust_01",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "dust_06_Collectable Item SimpleKey",
+    "scene": "dust_06",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item SimpleKey",
+    "originalItemId": "Simple Key"
+  },
+  {
+    "name": "dust_06_Collectable Item Pickup",
+    "scene": "dust_06",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Shard Pouch"
+  },
+  {
+    "name": "dust_10_rosary_string_machine_Behaviour",
+    "scene": "dust_10",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "dust_10_craw_court_summons_pin_FSM",
+    "scene": "dust_10",
+    "locationType": "fsm",
+    "gameObject": "craw_court_summons_pin",
+    "fsmName": "FSM",
+    "triggerState": "Set Pickup"
+  },
+  {
+    "name": "dust_11_Grub Farmer NPC_Control",
+    "scene": "dust_11",
+    "locationType": "fsm",
+    "gameObject": "Grub Farmer NPC",
+    "fsmName": "Control",
+    "triggerState": "Delivery Quest Reward"
+  },
+  {
+    "name": "dust_11_craw_court_summons_pin (1)_FSM",
+    "scene": "dust_11",
+    "locationType": "fsm",
+    "gameObject": "craw_court_summons_pin (1)",
+    "fsmName": "FSM",
+    "triggerState": "Set Pickup"
+  },
+  {
+    "name": "dust_11_craw_court_summons_pin_FSM",
+    "scene": "dust_11",
+    "locationType": "fsm",
+    "gameObject": "craw_court_summons_pin",
+    "fsmName": "FSM",
+    "triggerState": "Set Pickup"
+  },
+  {
+    "name": "dust_11_Grub Farmer Mimic_Dialogue",
+    "scene": "dust_11",
+    "locationType": "fsm",
+    "gameObject": "Grub Farmer Mimic",
+    "fsmName": "Dialogue",
+    "triggerState": "Give Grub?"
+  },
+  {
+    "name": "dust_barb_Collectable Item Pickup",
+    "scene": "dust_barb",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Barbed Wire"
+  },
+  {
+    "name": "dust_chef_Return Pickup",
+    "scene": "dust_chef",
+    "locationType": "collectable",
+    "gameObject": "Return Pickup",
+    "originalItemId": "Pickled Roach Egg"
+  },
+  {
+    "name": "dust_shack_Dust Traders_Dialogue",
+    "scene": "dust_shack",
+    "locationType": "fsm",
+    "gameObject": "Dust Traders",
+    "fsmName": "Dialogue",
+    "triggerState": "Give Prompt"
+  },
+  {
+    "name": "dust_shack_Collectable Item Dustpilo",
+    "scene": "dust_shack",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Dustpilo",
+    "originalItemId": "Tack"
+  },
+  {
+    "name": "greymoor_01_rosary_string_machine_Behaviour (special)",
+    "scene": "greymoor_01",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour (special)",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "greymoor_02_Silk Spool_Control",
+    "scene": "greymoor_02",
+    "locationType": "fsm",
+    "gameObject": "Silk Spool",
+    "fsmName": "Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "greymoor_05_Collectable Item Pickup",
+    "scene": "greymoor_05",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Shard Pouch"
+  },
+  {
+    "name": "greymoor_08_caravan_Caravan Troup Member Short Greymoor_Behaviour",
+    "scene": "greymoor_08_caravan",
+    "locationType": "fsm",
+    "gameObject": "Caravan Troup Member Short Greymoor",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Brew"
+  },
+  {
+    "name": "greymoor_08_caravan_Caravan Troupe Hunter_Dialogue",
+    "scene": "greymoor_08_caravan",
+    "locationType": "fsm",
+    "gameObject": "Caravan Troupe Hunter",
+    "fsmName": "Dialogue",
+    "triggerState": "All Fleas Collected"
+  },
+  {
+    "name": "greymoor_12_Collectable Item Pickup",
+    "scene": "greymoor_12",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Shard Pouch"
+  },
+  {
+    "name": "greymoor_15_Collectable Item Pickup",
+    "scene": "greymoor_15",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "greymoor_15b_Silkfly Cloud_Control",
+    "scene": "greymoor_15b",
+    "locationType": "fsm",
+    "gameObject": "Silkfly Cloud",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "greymoor_15b_Collectable Item Pickup (1)",
+    "scene": "greymoor_15b",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup (1)",
+    "originalItemId": "Tri Pin"
+  },
+  {
+    "name": "greymoor_15b_Collectable Item Pickup",
+    "scene": "greymoor_15b",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "greymoor_16_Collectable Item Pickup",
+    "scene": "greymoor_16",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "greymoor_21_Collectable Item Pickup",
+    "scene": "greymoor_21",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Bone Record Greymoor_flooded_corridor"
+  },
+  {
+    "name": "greymoor_22_Shrine Weaver Ability_Inspection",
+    "scene": "greymoor_22",
+    "locationType": "fsm",
+    "gameObject": "Shrine Weaver Ability",
+    "fsmName": "Inspection",
+    "triggerState": "Ability Collected"
+  },
+  {
+    "name": "halfway_01_HH Bartender_Dialogue",
+    "scene": "halfway_01",
+    "locationType": "fsm",
+    "gameObject": "HH Bartender",
+    "fsmName": "Dialogue",
+    "triggerState": "Collect 1"
+  },
+  {
+    "name": "halfway_01_Nuu_Dialogue",
+    "scene": "halfway_01",
+    "locationType": "fsm",
+    "gameObject": "Nuu",
+    "fsmName": "Dialogue",
+    "triggerState": "Talk Journal Given"
+  },
+  {
+    "name": "halfway_01_Collectable Item Pickup",
+    "scene": "halfway_01",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "hang_03_top_Silk Spool_Control",
+    "scene": "hang_03_top",
+    "locationType": "fsm",
+    "gameObject": "Silk Spool",
+    "fsmName": "Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "hang_06_bank_rosary_string_machine_Behaviour (special)",
+    "scene": "hang_06_bank",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour (special)",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "hang_06_bank_Rosary Collector_Collect",
+    "scene": "hang_06_bank",
+    "locationType": "fsm",
+    "gameObject": "Rosary Collector",
+    "fsmName": "Collect",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "hang_06_bank_Collectable Item Pickup",
+    "scene": "hang_06_bank",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Huge_White"
+  },
+  {
+    "name": "hang_06_bank_Rosary Cannon Pickup",
+    "scene": "hang_06_bank",
+    "locationType": "collectable",
+    "gameObject": "Rosary Cannon Pickup",
+    "originalItemId": "Rosary Cannon"
+  },
+  {
+    "name": "hang_06b_Map Machine_Unlock Behaviour",
+    "scene": "hang_06b",
+    "locationType": "fsm",
+    "gameObject": "Map Machine",
+    "fsmName": "Unlock Behaviour",
+    "triggerState": "Get Item"
+  },
+  {
+    "name": "hang_09_Craft Pickup_FSM",
+    "scene": "hang_09",
+    "locationType": "fsm",
+    "gameObject": "Craft Pickup",
+    "fsmName": "FSM",
+    "triggerState": "Get Item"
+  },
+  {
+    "name": "hang_10_Collectable Item Pickup",
+    "scene": "hang_10",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Psalm Cylinder Hang"
+  },
+  {
+    "name": "hang_12_Last Conductor NPC_Dialogue",
+    "scene": "hang_12",
+    "locationType": "fsm",
+    "gameObject": "Last Conductor NPC",
+    "fsmName": "Dialogue",
+    "triggerState": "Give Dlg"
+  },
+  {
+    "name": "hang_12_Collectable Item Pickup",
+    "scene": "hang_12",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Weaver Record Conductor"
+  },
+  {
+    "name": "hang_16_Collectable Item Pickup",
+    "scene": "hang_16",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "hang_17b_Collectable Item Pickup",
+    "scene": "hang_17b",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Reserve Bind"
+  },
+  {
+    "name": "library_02_Collectable Item Pickup",
+    "scene": "library_02",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Large"
+  },
+  {
+    "name": "library_03_Collectable Item Pickup",
+    "scene": "library_03",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Pale_Oil"
+  },
+  {
+    "name": "library_04_Map Machine (1)_Unlock Behaviour",
+    "scene": "library_04",
+    "locationType": "fsm",
+    "gameObject": "Map Machine (1)",
+    "fsmName": "Unlock Behaviour",
+    "triggerState": "Get Item"
+  },
+  {
+    "name": "library_05_Heart Piece_Heart Container Control",
+    "scene": "library_05",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "library_08_Librarian_Dialogue",
+    "scene": "library_08",
+    "locationType": "fsm",
+    "gameObject": "Librarian",
+    "fsmName": "Dialogue",
+    "triggerState": "Give Relics?"
+  },
+  {
+    "name": "library_08_Collectable Item Pickup",
+    "scene": "library_08",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "library_08_Collectable Item Pickup Librarian",
+    "scene": "library_08",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup Librarian",
+    "originalItemId": "Psalm Cylinder Librarian"
+  },
+  {
+    "name": "library_09_Collectable Item Pickup (1)",
+    "scene": "library_09",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup (1)",
+    "originalItemId": "Rosary_Set_Large"
+  },
+  {
+    "name": "library_09_Collectable Item Pickup",
+    "scene": "library_09",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Psalm Cylinder Library Roof"
+  },
+  {
+    "name": "library_10_Collectable Item Pickup - Melody",
+    "scene": "library_10",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup - Melody",
+    "originalItemId": "Librarian Melody Cylinder"
+  },
+  {
+    "name": "library_11b_Silkfly Cloud_Control",
+    "scene": "library_11b",
+    "locationType": "fsm",
+    "gameObject": "Silkfly Cloud",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "library_11b_Silk Spool_Control",
+    "scene": "library_11b",
+    "locationType": "fsm",
+    "gameObject": "Silk Spool",
+    "fsmName": "Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "library_12_Collectable Item Pickup",
+    "scene": "library_12",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Shard Pouch"
+  },
+  {
+    "name": "library_13_Re-Entry Pickup Upgrade",
+    "scene": "library_13",
+    "locationType": "collectable",
+    "gameObject": "Re-Entry Pickup Upgrade",
+    "originalItemId": "Dazzle Bind Upgraded"
+  },
+  {
+    "name": "library_13_Re-Entry Pickup",
+    "scene": "library_13",
+    "locationType": "collectable",
+    "gameObject": "Re-Entry Pickup",
+    "originalItemId": "Dazzle Bind"
+  },
+  {
+    "name": "library_13_Collectable Item Pickup",
+    "scene": "library_13",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Dazzle Bind Upgraded"
+  },
+  {
+    "name": "library_13b_Collectable Item Pickup - Quill Purple_FSM",
+    "scene": "library_13b",
+    "locationType": "fsm",
+    "gameObject": "Collectable Item Pickup - Quill Purple",
+    "fsmName": "FSM",
+    "triggerState": "Do Pickup"
+  },
+  {
+    "name": "library_13b_Desk Inspect and Quill_FSM",
+    "scene": "library_13b",
+    "locationType": "fsm",
+    "gameObject": "Desk Inspect and Quill",
+    "fsmName": "FSM",
+    "triggerState": "Show Collectable Quill"
+  },
+  {
+    "name": "library_13b_Collectable Item Pickup - Quill Red_FSM",
+    "scene": "library_13b",
+    "locationType": "fsm",
+    "gameObject": "Collectable Item Pickup - Quill Red",
+    "fsmName": "FSM",
+    "triggerState": "Do Pickup"
+  },
+  {
+    "name": "library_16_Collectable Item Pickup",
+    "scene": "library_16",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Cog Heart Pieces"
+  },
+  {
+    "name": "memory_coral_tower_Coral King_Control",
+    "scene": "memory_coral_tower",
+    "locationType": "fsm",
+    "gameObject": "Coral King",
+    "fsmName": "Control",
+    "triggerState": "Get Item"
+  },
+  {
+    "name": "memory_red_door_wakeInRedMemory Weaver_Wake Up",
+    "scene": "memory_red",
+    "locationType": "fsm",
+    "gameObject": "door_wakeInRedMemory Weaver",
+    "fsmName": "Wake Up",
+    "triggerState": "Get Item Msg"
+  },
+  {
+    "name": "memory_red_door_wakeInRedMemory Root_Wake Up",
+    "scene": "memory_red",
+    "locationType": "fsm",
+    "gameObject": "door_wakeInRedMemory Root",
+    "fsmName": "Wake Up",
+    "triggerState": "Get Item Msg"
+  },
+  {
+    "name": "memory_red_door_wakeInRedMemory Hive_Wake Up",
+    "scene": "memory_red",
+    "locationType": "fsm",
+    "gameObject": "door_wakeInRedMemory Hive",
+    "fsmName": "Wake Up",
+    "triggerState": "Get Item Msg"
+  },
+  {
+    "name": "memory_red_door_wakeInRedMemory Beast_Wake Up",
+    "scene": "memory_red",
+    "locationType": "fsm",
+    "gameObject": "door_wakeInRedMemory Beast",
+    "fsmName": "Wake Up",
+    "triggerState": "Get Item Msg"
+  },
+  {
+    "name": "mosstown_02_Shrine Weaver Ability_Inspection",
+    "scene": "mosstown_02",
+    "locationType": "fsm",
+    "gameObject": "Shrine Weaver Ability",
+    "fsmName": "Inspection",
+    "triggerState": "Ability Collected"
+  },
+  {
+    "name": "mosstown_02_Collectable Item Pickup",
+    "scene": "mosstown_02",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "mosstown_02c_Moss Creep NPC_Conversation Control",
+    "scene": "mosstown_02c",
+    "locationType": "fsm",
+    "gameObject": "Moss Creep NPC",
+    "fsmName": "Conversation Control",
+    "triggerState": "Give Reward"
+  },
+  {
+    "name": "mosstown_03_craw_court_summons_pin_FSM",
+    "scene": "mosstown_03",
+    "locationType": "fsm",
+    "gameObject": "craw_court_summons_pin",
+    "fsmName": "FSM",
+    "triggerState": "Set Pickup"
+  },
+  {
+    "name": "peak_01_Silk Spool_Control",
+    "scene": "peak_01",
+    "locationType": "fsm",
+    "gameObject": "Silk Spool",
+    "fsmName": "Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "peak_04c_Heart Piece_Heart Container Control",
+    "scene": "peak_04c",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "peak_06_Heart Piece_Heart Container Control",
+    "scene": "peak_06",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "peak_07_NPC_NPC Control",
+    "scene": "peak_07",
+    "locationType": "fsm",
+    "gameObject": "NPC",
+    "fsmName": "NPC Control",
+    "triggerState": "Reward"
+  },
+  {
+    "name": "peak_12_Webshot Scene_Repair webshot",
+    "scene": "peak_12",
+    "locationType": "fsm",
+    "gameObject": "Webshot Scene",
+    "fsmName": "Repair webshot",
+    "triggerState": "Get Item"
+  },
+  {
+    "name": "peak_mask_maker_Peak Mask Maker_Dialogue",
+    "scene": "peak_mask_maker",
+    "locationType": "fsm",
+    "gameObject": "Peak Mask Maker",
+    "fsmName": "Dialogue",
+    "triggerState": "Delivery Reward"
+  },
+  {
+    "name": "room_crowcourt_court_door_Door",
+    "scene": "room_crowcourt",
+    "locationType": "fsm",
+    "gameObject": "court_door",
+    "fsmName": "Door",
+    "triggerState": "Give Anim"
+  },
+  {
+    "name": "room_crowcourt_02_Collectable Item Pickup",
+    "scene": "room_crowcourt_02",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crowman Memento"
+  },
+  {
+    "name": "room_crowcourt_02_Collectable Item Pickup Crawbell",
+    "scene": "room_crowcourt_02",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup Crawbell",
+    "originalItemId": "Crawbell"
+  },
+  {
+    "name": "room_diving_bell_Travel Sequence Control_Sequence",
+    "scene": "room_diving_bell",
+    "locationType": "fsm",
+    "gameObject": "Travel Sequence Control",
+    "fsmName": "Sequence",
+    "triggerState": "Give Hero Control"
+  },
+  {
+    "name": "room_diving_bell_abyss_fixed_Travel Sequence Control_Sequence",
+    "scene": "room_diving_bell_abyss_fixed",
+    "locationType": "fsm",
+    "gameObject": "Travel Sequence Control",
+    "fsmName": "Sequence",
+    "triggerState": "Give Hero Control"
+  },
+  {
+    "name": "room_forge_Collectable Item Pickup (1)",
+    "scene": "room_forge",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup (1)",
+    "originalItemId": "Dock Demo Key"
+  },
+  {
+    "name": "room_forge_Collectable Item Pickup",
+    "scene": "room_forge",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Shard Pouch"
+  },
+  {
+    "name": "room_witch_Wood Witch_Dialogue",
+    "scene": "room_witch",
+    "locationType": "fsm",
+    "gameObject": "Wood Witch",
+    "fsmName": "Dialogue",
+    "triggerState": "Give Item?"
+  },
+  {
+    "name": "shadow_02_Collectable Item Pickup",
+    "scene": "shadow_02",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "shadow_11_Collectable Item Pickup (1)",
+    "scene": "shadow_11",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup (1)",
+    "originalItemId": "Quick Sling"
+  },
+  {
+    "name": "shadow_13_Heart Piece_Heart Container Control",
+    "scene": "shadow_13",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "shadow_20_Collectable Item Pickup (1)",
+    "scene": "shadow_20",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup (1)",
+    "originalItemId": "Wood Witch Item"
+  },
+  {
+    "name": "shadow_20_Collectable Item Pickup",
+    "scene": "shadow_20",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "shadow_24_Mapper Master NPC_Dialogue",
+    "scene": "shadow_24",
+    "locationType": "fsm",
+    "gameObject": "Mapper Master NPC",
+    "fsmName": "Dialogue",
+    "triggerState": "Reward"
+  },
+  {
+    "name": "shadow_27_Sack Corpse Pickup",
+    "scene": "shadow_27",
+    "locationType": "collectable",
+    "gameObject": "Sack Corpse Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "shadow_28_Rosary Collector_Collect",
+    "scene": "shadow_28",
+    "locationType": "fsm",
+    "gameObject": "Rosary Collector",
+    "fsmName": "Collect",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "shadow_bilehaven_room_Collectable Item Pickup (1)",
+    "scene": "shadow_bilehaven_room",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup (1)",
+    "originalItemId": "Snare Soul Swamp Bug"
+  },
+  {
+    "name": "shadow_weavehome_Collectable Item Pickup",
+    "scene": "shadow_weavehome",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Broken SilkShot"
+  },
+  {
+    "name": "shellwood_01_Nectar Pickup_Control",
+    "scene": "shellwood_01",
+    "locationType": "fsm",
+    "gameObject": "Nectar Pickup",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "shellwood_01_Collectable Item Pickup",
+    "scene": "shellwood_01",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "shellwood_01b_rosary_string_machine_Behaviour",
+    "scene": "shellwood_01b",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "shellwood_01b_craw_court_summons_pin_FSM",
+    "scene": "shellwood_01b",
+    "locationType": "fsm",
+    "gameObject": "craw_court_summons_pin",
+    "fsmName": "FSM",
+    "triggerState": "Set Pickup"
+  },
+  {
+    "name": "shellwood_01b_Collectable Item Pickup",
+    "scene": "shellwood_01b",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Small"
+  },
+  {
+    "name": "shellwood_02_Nectar Pickup_Control",
+    "scene": "shellwood_02",
+    "locationType": "fsm",
+    "gameObject": "Nectar Pickup",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "shellwood_08c_rosary_string_machine_Behaviour",
+    "scene": "shellwood_08c",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "shellwood_08c_rosary_string_machine_Behaviour (special)",
+    "scene": "shellwood_08c",
+    "locationType": "fsm",
+    "gameObject": "rosary_string_machine",
+    "fsmName": "Behaviour (special)",
+    "triggerState": "Give Object"
+  },
+  {
+    "name": "shellwood_08c_craw_court_summons_pin_FSM",
+    "scene": "shellwood_08c",
+    "locationType": "fsm",
+    "gameObject": "craw_court_summons_pin",
+    "fsmName": "FSM",
+    "triggerState": "Set Pickup"
+  },
+  {
+    "name": "shellwood_10_Shrine Weaver Ability_Inspection",
+    "scene": "shellwood_10",
+    "locationType": "fsm",
+    "gameObject": "Shrine Weaver Ability",
+    "fsmName": "Inspection",
+    "triggerState": "Ability Collected"
+  },
+  {
+    "name": "shellwood_10_Nectar Pickup_Control",
+    "scene": "shellwood_10",
+    "locationType": "fsm",
+    "gameObject": "Nectar Pickup",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "shellwood_11b_Collectable Item Pickup",
+    "scene": "shellwood_11b",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Flower Heart"
+  },
+  {
+    "name": "shellwood_13_Collectable Item Pickup",
+    "scene": "shellwood_13",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Shard Pouch"
+  },
+  {
+    "name": "shellwood_14_Heart Piece_Heart Container Control",
+    "scene": "shellwood_14",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "shellwood_15_Nectar Pickup_Control",
+    "scene": "shellwood_15",
+    "locationType": "fsm",
+    "gameObject": "Nectar Pickup",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "shellwood_20_Nectar Pickup_Control",
+    "scene": "shellwood_20",
+    "locationType": "fsm",
+    "gameObject": "Nectar Pickup",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "shellwood_25_Collectable Item Pickup (1)",
+    "scene": "shellwood_25",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup (1)",
+    "originalItemId": "Rosary_Set_Small"
+  },
+  {
+    "name": "shellwood_25_Collectable Item Pickup",
+    "scene": "shellwood_25",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Weaver Totem Witch"
+  },
+  {
+    "name": "shellwood_26_Nectar Pickup_Control",
+    "scene": "shellwood_26",
+    "locationType": "fsm",
+    "gameObject": "Nectar Pickup",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "slab_02_Collectable Item Pickup",
+    "scene": "slab_02",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "slab_04_Collectable Item Pickup",
+    "scene": "slab_04",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Shard Pouch"
+  },
+  {
+    "name": "slab_07_Rosary Collector_Collect",
+    "scene": "slab_07",
+    "locationType": "fsm",
+    "gameObject": "Rosary Collector",
+    "fsmName": "Collect",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "slab_10b_Shrine First Weaver NPC_Inspection",
+    "scene": "slab_10b",
+    "locationType": "fsm",
+    "gameObject": "Shrine First Weaver NPC",
+    "fsmName": "Inspection",
+    "triggerState": "Ability Collected"
+  },
+  {
+    "name": "slab_12_Collectable Item Pickup",
+    "scene": "slab_12",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Weaver Totem Slab_Bottom"
+  },
+  {
+    "name": "slab_16b_Collectable Item Pickup - Broodmother Eye",
+    "scene": "slab_16b",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup - Broodmother Eye",
+    "originalItemId": "Broodmother Remains"
+  },
+  {
+    "name": "slab_17_Heart Piece_Heart Container Control",
+    "scene": "slab_17",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "slab_18_Collectable Item Pickup",
+    "scene": "slab_18",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "slab_22_Collectable Item Pickup",
+    "scene": "slab_22",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "slab_cell_quiet_Collectable Item Pickup",
+    "scene": "slab_cell_quiet",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "song_01b_Map Machine (2)_Unlock Behaviour",
+    "scene": "song_01b",
+    "locationType": "fsm",
+    "gameObject": "Map Machine (2)",
+    "fsmName": "Unlock Behaviour",
+    "triggerState": "Get Item"
+  },
+  {
+    "name": "song_04_Collectable Item Pickup",
+    "scene": "song_04",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Large"
+  },
+  {
+    "name": "song_07_Collectable Item Pickup",
+    "scene": "song_07",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Medium"
+  },
+  {
+    "name": "song_09_Heart Piece_Heart Container Control",
+    "scene": "song_09",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "song_09_Collectable Item Pickup",
+    "scene": "song_09",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Medium"
+  },
+  {
+    "name": "song_09b_Gourmand Servant_Dialogue",
+    "scene": "song_09b",
+    "locationType": "fsm",
+    "gameObject": "Gourmand Servant",
+    "fsmName": "Dialogue",
+    "triggerState": "Quest Reward"
+  },
+  {
+    "name": "song_19_entrance_Silk Spool_Control",
+    "scene": "song_19_entrance",
+    "locationType": "fsm",
+    "gameObject": "Silk Spool",
+    "fsmName": "Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "song_19_entrance_Map Machine (1)_Unlock Behaviour",
+    "scene": "song_19_entrance",
+    "locationType": "fsm",
+    "gameObject": "Map Machine (1)",
+    "fsmName": "Unlock Behaviour",
+    "triggerState": "Get Item"
+  },
+  {
+    "name": "song_20_right_cutsceneEntry_Cutscene Control",
+    "scene": "song_20",
+    "locationType": "fsm",
+    "gameObject": "right_cutsceneEntry",
+    "fsmName": "Cutscene Control",
+    "triggerState": "Give Control"
+  },
+  {
+    "name": "song_24_Rosary Collector_Collect",
+    "scene": "song_24",
+    "locationType": "fsm",
+    "gameObject": "Rosary Collector",
+    "fsmName": "Collect",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "song_26_Collectable Item Pickup",
+    "scene": "song_26",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Cog Heart Pieces"
+  },
+  {
+    "name": "song_28_Toll_machine_silk_ration_Behaviour",
+    "scene": "song_28",
+    "locationType": "fsm",
+    "gameObject": "Toll_machine_silk_ration",
+    "fsmName": "Behaviour",
+    "triggerState": "Fire Pickup"
+  },
+  {
+    "name": "song_29_Toll_machine_silk_ration_Behaviour",
+    "scene": "song_29",
+    "locationType": "fsm",
+    "gameObject": "Toll_machine_silk_ration",
+    "fsmName": "Behaviour",
+    "triggerState": "Fire Pickup"
+  },
+  {
+    "name": "song_enclave_Enclave Caretaker_Dialogue",
+    "scene": "song_enclave",
+    "locationType": "fsm",
+    "gameObject": "Enclave Caretaker",
+    "fsmName": "Dialogue",
+    "triggerState": "Give Items?"
+  },
+  {
+    "name": "song_enclave_Quest_Board_Hand In Sequence",
+    "scene": "song_enclave",
+    "locationType": "fsm",
+    "gameObject": "Quest_Board",
+    "fsmName": "Hand In Sequence",
+    "triggerState": "Donation Sequence Reward"
+  },
+  {
+    "name": "song_enclave_Collectable Item Pickup",
+    "scene": "song_enclave",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Ward Key"
+  },
+  {
+    "name": "song_enclave_Sherma Caretaker_Control",
+    "scene": "song_enclave",
+    "locationType": "fsm",
+    "gameObject": "Sherma Caretaker",
+    "fsmName": "Control",
+    "triggerState": "Delivery Quest Reward"
+  },
+  {
+    "name": "song_tower_01_Silk Heart_Control",
+    "scene": "song_tower_01",
+    "locationType": "fsm",
+    "gameObject": "Silk Heart",
+    "fsmName": "Control",
+    "triggerState": "Collect End"
+  },
+  {
+    "name": "sprintmaster_cave_Sprintmaster Runner_Behaviour",
+    "scene": "sprintmaster_cave",
+    "locationType": "fsm",
+    "gameObject": "Sprintmaster Runner",
+    "fsmName": "Behaviour",
+    "triggerState": "Give Reward"
+  },
+  {
+    "name": "tut_01_Collectable Item Pickup",
+    "scene": "tut_01",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "tut_04_Snail Shamans Set_Dialogue",
+    "scene": "tut_04",
+    "locationType": "fsm",
+    "gameObject": "Snail Shamans Set",
+    "fsmName": "Dialogue",
+    "triggerState": "Give Crest Idle"
+  },
+  {
+    "name": "under_03_Collectable Item Pickup",
+    "scene": "under_03",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Shard Pouch"
+  },
+  {
+    "name": "under_07c_Collectable Item Pickup",
+    "scene": "under_07c",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "under_08_Collectable Item Pickup (1)",
+    "scene": "under_08",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup (1)",
+    "originalItemId": "Psalm Cylinder Ward"
+  },
+  {
+    "name": "under_08_Collectable Item Pickup",
+    "scene": "under_08",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "under_10_Silk Spool_Control",
+    "scene": "under_10",
+    "locationType": "fsm",
+    "gameObject": "Silk Spool",
+    "fsmName": "Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "under_12_Collectable Item Pickup",
+    "scene": "under_12",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "under_14_Collectable Item Pickup",
+    "scene": "under_14",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Screw Attack"
+  },
+  {
+    "name": "under_16_Collectable Item Pickup",
+    "scene": "under_16",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Bone Record Understore_Map_Room"
+  },
+  {
+    "name": "under_17_Collectable Item Pickup",
+    "scene": "under_17",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Pristine Core"
+  },
+  {
+    "name": "under_18_Shrine Weaver Ability_Inspection",
+    "scene": "under_18",
+    "locationType": "fsm",
+    "gameObject": "Shrine Weaver Ability",
+    "fsmName": "Inspection",
+    "triggerState": "Ability Collected"
+  },
+  {
+    "name": "under_18_Collectable Item Pickup (1)",
+    "scene": "under_18",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup (1)",
+    "originalItemId": "Shard Pouch"
+  },
+  {
+    "name": "under_18_Shrine Weaver HarpoonDash_Inspection",
+    "scene": "under_18",
+    "locationType": "fsm",
+    "gameObject": "Shrine Weaver HarpoonDash",
+    "fsmName": "Inspection",
+    "triggerState": "Ability Collected"
+  },
+  {
+    "name": "under_19b_Collectable Item Pickup - Tool Metal",
+    "scene": "under_19b",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup - Tool Metal",
+    "originalItemId": "Tool Metal"
+  },
+  {
+    "name": "ward_01_Silk Spool_Control",
+    "scene": "ward_01",
+    "locationType": "fsm",
+    "gameObject": "Silk Spool",
+    "fsmName": "Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "ward_01_Map Machine (1)_Unlock Behaviour",
+    "scene": "ward_01",
+    "locationType": "fsm",
+    "gameObject": "Map Machine (1)",
+    "fsmName": "Unlock Behaviour",
+    "triggerState": "Get Item"
+  },
+  {
+    "name": "ward_02_Silk Heart_Control",
+    "scene": "ward_02",
+    "locationType": "fsm",
+    "gameObject": "Silk Heart",
+    "fsmName": "Control",
+    "triggerState": "Collect End"
+  },
+  {
+    "name": "ward_02b_Collectable Item Pickup",
+    "scene": "ward_02b",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Seal Chit Ward Corpse"
+  },
+  {
+    "name": "ward_03_Collectable Item Pickup",
+    "scene": "ward_03",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Quickbind"
+  },
+  {
+    "name": "ward_05_Collectable Item Pickup",
+    "scene": "ward_05",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Seal Chit Silk Siphon"
+  },
+  {
+    "name": "ward_07_Collectable Item Pickup",
+    "scene": "ward_07",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Ward Boss Key"
+  },
+  {
+    "name": "weave_03_Collectable Item Pickup",
+    "scene": "weave_03",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "White Ring"
+  },
+  {
+    "name": "weave_05b_Heart Piece_Heart Container Control",
+    "scene": "weave_05b",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "weave_08_Silkfly Cloud_Control",
+    "scene": "weave_08",
+    "locationType": "fsm",
+    "gameObject": "Silkfly Cloud",
+    "fsmName": "Control",
+    "triggerState": "Collect"
+  },
+  {
+    "name": "weave_08_Collectable Item Pickup",
+    "scene": "weave_08",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Weaver Record Weave_08"
+  },
+  {
+    "name": "weave_11_Silk Spool_Control",
+    "scene": "weave_11",
+    "locationType": "fsm",
+    "gameObject": "Silk Spool",
+    "fsmName": "Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "weave_14_Collectable Item Pickup (1)",
+    "scene": "weave_14",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup (1)",
+    "originalItemId": "Silk Snare"
+  },
+  {
+    "name": "wisp_02_Collectable Item Pickup",
+    "scene": "wisp_02",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Medium"
+  },
+  {
+    "name": "wisp_03_Collectable Item Pickup",
+    "scene": "wisp_03",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "wisp_04_craw_court_summons_pin_FSM",
+    "scene": "wisp_04",
+    "locationType": "fsm",
+    "gameObject": "craw_court_summons_pin",
+    "fsmName": "FSM",
+    "triggerState": "Set Pickup"
+  },
+  {
+    "name": "wisp_05_Collectable Item Pickup - Tool Metal",
+    "scene": "wisp_05",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup - Tool Metal",
+    "originalItemId": "Tool Metal"
+  },
+  {
+    "name": "wisp_06_Craft Pickup_FSM",
+    "scene": "wisp_06",
+    "locationType": "fsm",
+    "gameObject": "Craft Pickup",
+    "fsmName": "FSM",
+    "triggerState": "Get Item"
+  },
+  {
+    "name": "wisp_07_Heart Piece_Heart Container Control",
+    "scene": "wisp_07",
+    "locationType": "fsm",
+    "gameObject": "Heart Piece",
+    "fsmName": "Heart Container Control",
+    "triggerState": "Pickup Disabled?"
+  },
+  {
+    "name": "wisp_08_Collectable Item Pickup",
+    "scene": "wisp_08",
+    "locationType": "collectable",
+    "gameObject": "Collectable Item Pickup",
+    "originalItemId": "Bone Record Wisp Top"
+  },
+  {
+    "name": "Bellshrine_01",
+    "scene": "bellshrine",
+    "locationType": "fsm",
+    "gameObject": "Bell Shrine Lever",
+    "fsmName": "Activate Delayed",
+    "triggerState": "Hit Lever"
+  },
+  {
+    "name": "Bellshrine_02",
+    "scene": "bellshrine_02",
+    "locationType": "fsm",
+    "gameObject": "Bell Shrine Lever",
+    "fsmName": "Activate Delayed",
+    "triggerState": "Hit Lever"
+  },
+  {
+    "name": "Bellshrine_03",
+    "scene": "bellshrine_03",
+    "locationType": "fsm",
+    "gameObject": "Bell Shrine Lever",
+    "fsmName": "Activate Delayed",
+    "triggerState": "Hit Lever"
+  },
+  {
+    "name": "Bellshrine_05",
+    "scene": "bellshrine_05",
+    "locationType": "fsm",
+    "gameObject": "Bell Shrine Lever",
+    "fsmName": "Activate Delayed",
+    "triggerState": "Hit Lever"
+  },
+  {
+    "name": "Bellshrine_Coral",
+    "scene": "bellshrine_coral",
+    "locationType": "fsm",
+    "gameObject": "Bell Shrine Lever",
+    "fsmName": "Activate Delayed",
+    "triggerState": "Hit Lever"
+  },
+  {
+    "name": "Bellshrine_Enclave",
+    "scene": "bellshrine_enclave",
+    "locationType": "fsm",
+    "gameObject": "Bell Shrine Lever",
+    "fsmName": "Activate Delayed",
+    "triggerState": "Hit Lever"
+  }
 ]

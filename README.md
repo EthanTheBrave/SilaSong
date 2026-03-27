@@ -34,33 +34,36 @@ Two projects:
 
 ---
 
-## ⚠️ TODO: Location Data Needs In-Game Discovery
+## Location Data Status
 
-The biggest remaining task before this mod is playable is filling in the actual **scene names, GameObject names, FSM names, and trigger states** in:
+`SilksongRando/Resources/Data/locations.json` now contains **354 real locations** extracted directly from the game bundles using `tools/extract_locations.py` (UnityPy):
+
+- **160 collectable pickups** — `CollectableItemPickup` components with confirmed `SavedItem` asset names
+- **188 FSM locations** — ability shrines, boss drops, quest rewards, shops, and NPC dialogues with give-states
+- **6 bellshrine locations** — one per bellshrine scene, hooked on `Bell Shrine Lever → Activate Delayed → Hit Lever`
+
+All scene names, GameObject names, FSM names, and item asset names come from the real game bundles.
+
+## ⚠️ TODO: What Still Needs Work
+
+### 1. Logic expressions
+`SilksongRando/Resources/Logic/locations.json` currently uses `"logic": "TRUE"` for all 354 locations — meaning nothing is locked behind progression yet. Real logic (which abilities/items are required to reach each location) needs to be filled in based on in-game testing.
+
+### 2. Item pool mapping
+`items.json` has 25 items defined. The 354 locations need to be mapped to pools in `pools.json` so the randomizer knows which locations contain which categories of items. Many of the 354 extracted locations give trinkets/relics that aren't yet represented in `items.json`.
+
+### 3. FSM trigger state verification
+Some FSM `triggerState` values were auto-selected from the first matching "give" state keyword. A handful may need correction after in-game testing — especially quest-chain locations where multiple states contain give-keywords.
+
+### 4. In-game testing
+All game API calls (ability unlocks, item gives, scene hooks) use confirmed field/method names from the decompiled assembly. The mod compiles cleanly but hasn't been run in-game yet.
+
+### How to re-extract location data
 
 ```
-SilksongRando/Resources/Data/locations.json
+cd tools
+pip install UnityPy
+python extract_locations.py
 ```
 
-All game API calls (ability unlocks, item gives, hooks) are implemented with confirmed method/field names from the decompiled assembly. The location data is the only part that still contains placeholders.
-
-### What needs to be done
-
-For each location entry in `locations.json`, the following fields need real values verified in-game:
-
-| Field | Description | How to find it |
-|---|---|---|
-| `scene` | The Unity scene name the location is in | Use a scene dumper tool or check scene transition logs |
-| `gameObject` | The GameObject path in the scene hierarchy | Use the in-game debug mod or a runtime inspector |
-| `fsmName` | The PlayMaker FSM name on that GameObject | Use [FsmUtil](https://thunderstore.io/c/hollow-knight-silksong/p/PimDeWitte/FsmUtil/) or a FSM viewer |
-| `triggerState` | The FSM state that gives the item | Step through FSM states with a debug tool |
-| `originalItemId` | The `SavedItem` asset name for collectable pickups | Log `pickup.Item.name` in a test patch |
-
-### Recommended approach
-
-1. Install [Silksong.DebugMod](https://github.com/hk-speedrunning/Silksong.DebugMod) for scene/object inspection.
-2. Install [FsmUtil](https://thunderstore.io/c/hollow-knight-silksong/p/PimDeWitte/FsmUtil/) to view PlayMaker FSMs at runtime.
-3. For each item location in the game, record the scene, GameObject, and FSM details.
-4. Update `locations.json` and the matching `Resources/Logic/locations.json` logic expressions.
-
-The existing [Silksong-Rando](https://github.com/timothymarriott/Silksong-Rando) by timothymarriott has a `LocationFinder` tool (F11+Y) that scans all scenes automatically — that output can be used as a reference for `CollectableItemPickup` locations.
+Outputs go to `tools/output/`. The script scans all 590 scene bundles and extracts `CollectableItemPickup`, `PlayMakerFSM`, and bellshrine data automatically.
