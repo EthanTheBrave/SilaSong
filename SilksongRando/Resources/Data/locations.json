@@ -1,0 +1,116 @@
+[
+  // ── Ability pickup locations ───────────────────────────────────────────
+  // NOTE: scene names, gameObject names, FSM names, and triggerStates must be
+  // verified against the live game. Use the SceneDumper / LocationFinder tools
+  // from Silksong-Rando as reference for discovery.
+
+  {
+    "name": "Silkspear_Pickup",
+    "scene": "Dungeon_01",
+    "locationType": "fsm",
+    "gameObject": "Silkspear Pickup",
+    "fsmName": "Item Give",
+    "triggerState": "Give Item"
+  },
+  {
+    "name": "Sprint_Pickup",
+    "scene": "Overworld_03",
+    "locationType": "fsm",
+    "gameObject": "Sprint Pickup",
+    "fsmName": "Item Give",
+    "triggerState": "Give Item"
+  },
+  {
+    "name": "Walljump_Pickup",
+    "scene": "Cave_02",
+    "locationType": "fsm",
+    "gameObject": "Walljump Pickup",
+    "fsmName": "Item Give",
+    "triggerState": "Give Item"
+  },
+  {
+    "name": "Needolin_NPC",
+    "scene": "Village_01",
+    "locationType": "fsm",
+    "gameObject": "Needolin NPC",
+    "fsmName": "Conversation",
+    "triggerState": "Give Item"
+  },
+  {
+    "name": "SilkSphere_Pickup",
+    "scene": "Dungeon_05",
+    "locationType": "collectable",
+    "originalItemId": "ability_SilkSphere"
+  },
+  {
+    "name": "Brolly_Pickup",
+    "scene": "Cave_04",
+    "locationType": "fsm",
+    "gameObject": "Brolly NPC",
+    "fsmName": "Give Brolly",
+    "triggerState": "Give"
+  },
+  {
+    "name": "Faydown_DJ",
+    "scene": "Faydown_Hub",
+    "locationType": "fsm",
+    "gameObject": "DJ NPC",
+    "fsmName": "Conversation",
+    "triggerState": "Give Item"
+  },
+
+  // ── Melody locations ───────────────────────────────────────────────────
+  {
+    "name": "Melody_Vault_Location",
+    "scene": "Vault_Boss",
+    "locationType": "fsm",
+    "gameObject": "Vault Melody Cylinder",
+    "fsmName": "Give Melody",
+    "triggerState": "Give"
+  },
+  {
+    "name": "Melody_Architect_Location",
+    "scene": "Architect_Boss",
+    "locationType": "fsm",
+    "gameObject": "Architect Melody Cylinder",
+    "fsmName": "Give Melody",
+    "triggerState": "Give"
+  },
+  {
+    "name": "Melody_Conductor_Location",
+    "scene": "Conductor_Boss",
+    "locationType": "fsm",
+    "gameObject": "Conductor Melody Cylinder",
+    "fsmName": "Give Melody",
+    "triggerState": "Give"
+  },
+
+  // ── Heart Pieces ──────────────────────────────────────────────────────
+  { "name": "HeartPiece_01", "scene": "Overworld_01", "locationType": "collectable", "originalItemId": "HeartPiece_01" },
+  { "name": "HeartPiece_02", "scene": "Cave_01",      "locationType": "collectable", "originalItemId": "HeartPiece_02" },
+  { "name": "HeartPiece_03", "scene": "Dungeon_02",   "locationType": "collectable", "originalItemId": "HeartPiece_03" },
+  { "name": "HeartPiece_04", "scene": "Overworld_04", "locationType": "collectable", "originalItemId": "HeartPiece_04" },
+  { "name": "HeartPiece_05", "scene": "Village_02",   "locationType": "collectable", "originalItemId": "HeartPiece_05" },
+  { "name": "HeartPiece_06", "scene": "Cave_03",      "locationType": "collectable", "originalItemId": "HeartPiece_06" },
+  { "name": "HeartPiece_07", "scene": "Dungeon_04",   "locationType": "collectable", "originalItemId": "HeartPiece_07" },
+  { "name": "HeartPiece_08", "scene": "Overworld_06", "locationType": "collectable", "originalItemId": "HeartPiece_08" },
+
+  // ── Bellshrines ───────────────────────────────────────────────────────
+  { "name": "Bellshrine_01", "scene": "Overworld_02", "locationType": "fsm", "gameObject": "Bellshrine", "fsmName": "Bell Shrine Sequence", "triggerState": "Give Reward" },
+  { "name": "Bellshrine_02", "scene": "Cave_01",      "locationType": "fsm", "gameObject": "Bellshrine", "fsmName": "Bell Shrine Sequence", "triggerState": "Give Reward" },
+  { "name": "Bellshrine_03", "scene": "Dungeon_03",   "locationType": "fsm", "gameObject": "Bellshrine", "fsmName": "Bell Shrine Sequence", "triggerState": "Give Reward" },
+  { "name": "Bellshrine_04", "scene": "Village_01",   "locationType": "fsm", "gameObject": "Bellshrine", "fsmName": "Bell Shrine Sequence", "triggerState": "Give Reward" },
+  { "name": "Bellshrine_05", "scene": "Overworld_05", "locationType": "fsm", "gameObject": "Bellshrine", "fsmName": "Bell Shrine Sequence", "triggerState": "Give Reward" },
+
+  // ── Mossberries ───────────────────────────────────────────────────────
+  { "name": "Mossberry_01", "scene": "Overworld_01", "locationType": "collectable", "originalItemId": "Mossberry_01" },
+  { "name": "Mossberry_02", "scene": "Overworld_02", "locationType": "collectable", "originalItemId": "Mossberry_02" },
+  { "name": "Mossberry_03", "scene": "Cave_01",      "locationType": "collectable", "originalItemId": "Mossberry_03" },
+  { "name": "Mossberry_04", "scene": "Cave_02",      "locationType": "collectable", "originalItemId": "Mossberry_04" },
+  { "name": "Mossberry_05", "scene": "Dungeon_01",   "locationType": "collectable", "originalItemId": "Mossberry_05" },
+
+  // ── Pollip Bulbs ──────────────────────────────────────────────────────
+  { "name": "PollipBulb_01", "scene": "Overworld_01", "locationType": "collectable", "originalItemId": "PollipBulb_01" },
+  { "name": "PollipBulb_02", "scene": "Cave_03",      "locationType": "collectable", "originalItemId": "PollipBulb_02" },
+  { "name": "PollipBulb_03", "scene": "Dungeon_02",   "locationType": "collectable", "originalItemId": "PollipBulb_03" }
+]

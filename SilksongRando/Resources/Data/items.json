@@ -1,0 +1,41 @@
+[
+  // ── Abilities ──────────────────────────────────────────────────────────
+  { "name": "Ability_Silkspear",  "type": "ability", "uiName": "Silkspear",       "abilityId": "Silkspear"  },
+  { "name": "Ability_Sprint",     "type": "ability", "uiName": "Sprint",           "abilityId": "Sprint"     },
+  { "name": "Ability_Walljump",   "type": "ability", "uiName": "Walljump",         "abilityId": "Walljump"   },
+  { "name": "Ability_Needolin",   "type": "ability", "uiName": "Needolin",         "abilityId": "Needolin"   },
+  { "name": "Ability_SilkSphere", "type": "ability", "uiName": "Silk Sphere",      "abilityId": "SilkSphere" },
+  { "name": "Ability_Brolly",     "type": "ability", "uiName": "Brolly",           "abilityId": "Brolly"     },
+  { "name": "Ability_Faydown",    "type": "ability", "uiName": "Faydown",          "abilityId": "Faydown"    },
+
+  // ── Melodies (win conditions) ──────────────────────────────────────────
+  { "name": "Melody_Vault",       "type": "melody",  "uiName": "Vault Melody",     "melodyId": "melody_Vault"     },
+  { "name": "Melody_Architect",   "type": "melody",  "uiName": "Architect Melody", "melodyId": "melody_Architect" },
+  { "name": "Melody_Conductor",   "type": "melody",  "uiName": "Conductor Melody", "melodyId": "melody_Conductor" },
+
+  // ── Bells (needed for Act 2) ───────────────────────────────────────────
+  { "name": "Bell_01", "type": "bell", "uiName": "Bell",  "itemId": "Bell_01" },
+  { "name": "Bell_02", "type": "bell", "uiName": "Bell",  "itemId": "Bell_02" },
+  { "name": "Bell_03", "type": "bell", "uiName": "Bell",  "itemId": "Bell_03" },
+  { "name": "Bell_04", "type": "bell", "uiName": "Bell",  "itemId": "Bell_04" },
+  { "name": "Bell_05", "type": "bell", "uiName": "Bell",  "itemId": "Bell_05" },
+
+  // ── Heart Pieces ───────────────────────────────────────────────────────
+  { "name": "Heart_Piece", "type": "heartpiece", "uiName": "Heart Piece" },
+
+  // ── Trinkets ───────────────────────────────────────────────────────────
+  { "name": "Trinket_Mossberry",           "type": "trinket", "uiName": "Mossberry",             "itemId": "Mossberry"             },
+  { "name": "Trinket_RosaryFrayed",        "type": "trinket", "uiName": "Frayed Rosary",          "itemId": "Rosary_Set_Frayed"     },
+  { "name": "Trinket_RosarySmall",         "type": "trinket", "uiName": "Small Rosary",           "itemId": "Rosary_Set_Small"      },
+  { "name": "Trinket_BoneNecklace",        "type": "trinket", "uiName": "Bone Necklace",          "itemId": "Bone Necklace"         },
+  { "name": "Trinket_SealChit",            "type": "trinket", "uiName": "Seal Chit",              "itemId": "Seal Chit"             },
+  { "name": "Trinket_StraightPin",         "type": "trinket", "uiName": "Straight Pin",           "itemId": "Straight Pin"          },
+  { "name": "Trinket_TriPin",              "type": "trinket", "uiName": "Tri Pin",                "itemId": "Tri Pin"               },
+  { "name": "Trinket_ShardPouch",          "type": "trinket", "uiName": "Shard Pouch",            "itemId": "Shard Pouch"           },
+  { "name": "Trinket_ShellFlower",         "type": "trinket", "uiName": "Shell Flower",           "itemId": "Shell Flower"          },
+  { "name": "Trinket_BarbedWire",          "type": "trinket", "uiName": "Barbed Wire",            "itemId": "Barbed Wire"           },
+  { "name": "Trinket_MagnetiteDice",       "type": "trinket", "uiName": "Magnetite Dice",         "itemId": "Magnetite Dice"        },
+  { "name": "Trinket_CrestSocketUnlocker", "type": "trinket", "uiName": "Crest Socket Unlocker",  "itemId": "Crest Socket Unlocker" },
+  { "name": "Trinket_WardKey",             "type": "trinket", "uiName": "Ward Key",               "itemId": "Ward Key"              },
+  { "name": "Trinket_LibrarianMelody",     "type": "trinket", "uiName": "Librarian Melody Cylinder", "itemId": "Librarian Melody Cylinder" }
+]

@@ -1,0 +1,44 @@
+[
+  // ── Ability locations ─────────────────────────────────────────────────
+  { "name": "Silkspear_Pickup",    "logic": "TRUE" },
+  { "name": "Sprint_Pickup",       "logic": "Ability_Silkspear" },
+  { "name": "Walljump_Pickup",     "logic": "Ability_Silkspear" },
+  { "name": "Needolin_NPC",        "logic": "Ability_Sprint" },
+  { "name": "SilkSphere_Pickup",   "logic": "Ability_Walljump" },
+  { "name": "Brolly_Pickup",       "logic": "Ability_Walljump" },
+  { "name": "Faydown_DJ",          "logic": "Reached_Faydown" },
+
+  // ── Melody locations ──────────────────────────────────────────────────
+  { "name": "Melody_Vault_Location",      "logic": "Reached_VaultBoss" },
+  { "name": "Melody_Architect_Location",  "logic": "Reached_ArchitectBoss" },
+  { "name": "Melody_Conductor_Location",  "logic": "Reached_ConductorBoss" },
+
+  // ── Heart Pieces ──────────────────────────────────────────────────────
+  { "name": "HeartPiece_01", "logic": "TRUE" },
+  { "name": "HeartPiece_02", "logic": "Ability_Silkspear" },
+  { "name": "HeartPiece_03", "logic": "Ability_Walljump" },
+  { "name": "HeartPiece_04", "logic": "Ability_Sprint" },
+  { "name": "HeartPiece_05", "logic": "TRUE" },
+  { "name": "HeartPiece_06", "logic": "Ability_Walljump + Ability_Sprint" },
+  { "name": "HeartPiece_07", "logic": "Reached_Act2" },
+  { "name": "HeartPiece_08", "logic": "Reached_Act2 + Ability_Silkspear" },
+
+  // ── Bellshrines ───────────────────────────────────────────────────────
+  { "name": "Bellshrine_01", "logic": "TRUE" },
+  { "name": "Bellshrine_02", "logic": "Ability_Silkspear" },
+  { "name": "Bellshrine_03", "logic": "Ability_Walljump" },
+  { "name": "Bellshrine_04", "logic": "Ability_Sprint" },
+  { "name": "Bellshrine_05", "logic": "Ability_Walljump + Ability_Sprint" },
+
+  // ── Mossberries ───────────────────────────────────────────────────────
+  { "name": "Mossberry_01", "logic": "TRUE" },
+  { "name": "Mossberry_02", "logic": "TRUE" },
+  { "name": "Mossberry_03", "logic": "Ability_Silkspear" },
+  { "name": "Mossberry_04", "logic": "Ability_Sprint" },
+  { "name": "Mossberry_05", "logic": "Ability_Walljump" },
+
+  // ── Pollip Bulbs ──────────────────────────────────────────────────────
+  { "name": "PollipBulb_01", "logic": "TRUE" },
+  { "name": "PollipBulb_02", "logic": "Ability_Walljump" },
+  { "name": "PollipBulb_03", "logic": "Ability_Silkspear + Ability_Walljump" }
+]

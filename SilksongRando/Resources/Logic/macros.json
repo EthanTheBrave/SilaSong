@@ -1,0 +1,13 @@
+{
+  "COMBAT": "TRUE",
+  "WINGS": "Ability_Walljump",
+  "PROJECTILE": "Ability_Silkspear",
+  "DASHABS": "Ability_Sprint | Ability_SilkSphere",
+  "PRECISE_COMBAT": "COMBAT | SKIP_PRECISE_COMBAT",
+
+  "ALLBELLS": "Bell_01 + Bell_02 + Bell_03 + Bell_04 + Bell_05",
+
+  "SKIP_PRECISE_PLATFORMING": "FALSE",
+  "SKIP_SPEAR_MOVEMENT": "FALSE",
+  "SKIP_EARLY_ELEVATED": "FALSE"
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Start",
+    "logic": "TRUE"
+  },
+  {
+    "name": "Reached_Act2",
+    "logic": "ALLBELLS"
+  },
+  {
+    "name": "Reached_Faydown",
+    "logic": "Ability_Brolly + Ability_Walljump"
+  },
+  {
+    "name": "Reached_VaultBoss",
+    "logic": "Reached_Act2 + Ability_Silkspear"
+  },
+  {
+    "name": "Reached_ArchitectBoss",
+    "logic": "Reached_Act2 + Ability_Walljump + Ability_Sprint"
+  },
+  {
+    "name": "Reached_ConductorBoss",
+    "logic": "Reached_Act2 + Ability_Needolin"
+  }
+]

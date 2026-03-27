@@ -1,0 +1,21 @@
+[
+  { "name": "Ability_Silkspear",  "logic": "Ability_Silkspear>0"  },
+  { "name": "Ability_Sprint",     "logic": "Ability_Sprint>0"     },
+  { "name": "Ability_Walljump",   "logic": "Ability_Walljump>0"   },
+  { "name": "Ability_Needolin",   "logic": "Ability_Needolin>0"   },
+  { "name": "Ability_SilkSphere", "logic": "Ability_SilkSphere>0" },
+  { "name": "Ability_Brolly",     "logic": "Ability_Brolly>0"     },
+  { "name": "Ability_Faydown",    "logic": "Ability_Faydown>0"    },
+  { "name": "Melody_Vault",       "logic": "Melody_Vault>0"       },
+  { "name": "Melody_Architect",   "logic": "Melody_Architect>0"   },
+  { "name": "Melody_Conductor",   "logic": "Melody_Conductor>0"   },
+  { "name": "Heart_Piece",        "logic": "Heart_Piece>0"        },
+  { "name": "Bell_01",            "logic": "Bell_01>0"            },
+  { "name": "Bell_02",            "logic": "Bell_02>0"            },
+  { "name": "Bell_03",            "logic": "Bell_03>0"            },
+  { "name": "Bell_04",            "logic": "Bell_04>0"            },
+  { "name": "Bell_05",            "logic": "Bell_05>0"            },
+  { "name": "Trinket_Mossberry",  "logic": "Trinket_Mossberry>0"  },
+  { "name": "Trinket_ShellFlower","logic": "Trinket_ShellFlower>0"},
+  { "name": "Trinket_WardKey",    "logic": "Trinket_WardKey>0"    }
+]
