@@ -1,26 +1,66 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
     <AssemblyName>SilksongRando</AssemblyName>
     <RootNamespace>SilksongRando</RootNamespace>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
-    <GameDir Condition="'$(GameDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight Silksong</GameDir>
+    <GameDir Condition="'$(GameDir)' == ''">C:\repos\ss\ss</GameDir>
     <OutputPath>$(GameDir)\BepInEx\plugins\SilksongRando\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BepInEx.Core" Version="5.4.21" />
-    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.1.0" />
-    <PackageReference Include="HarmonyX" Version="2.10.1" ExcludeAssets="runtime" />
-    <!-- RandomizerCore: game-agnostic randomization algorithm -->
-    <PackageReference Include="RandomizerCore" Version="*-*" />
-    <PackageReference Include="RandomizerCore.Json" Version="*-*" />
-    <!-- Silksong packages -->
-    <PackageReference Include="Silksong.GameLibs" Version="*-*" />
-    <PackageReference Include="Silksong.DataManager" Version="*-*" />
-    <PackageReference Include="Silksong.GameModeManager" Version="*-*" />
+    <!-- BepInEx 5 core -->
+    <Reference Include="BepInEx">
+      <HintPath>$(GameDir)\BepInEx\core\BepInEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(GameDir)\BepInEx\core\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <!-- Unity engine -->
+    <Reference Include="UnityEngine">
+      <HintPath>$(GameDir)\Hollow Knight Silksong_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(GameDir)\Hollow Knight Silksong_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(GameDir)\Hollow Knight Silksong_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(GameDir)\Hollow Knight Silksong_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$(GameDir)\Hollow Knight Silksong_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(GameDir)\Hollow Knight Silksong_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <!-- Game assemblies -->
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(GameDir)\Hollow Knight Silksong_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="PlayMaker">
+      <HintPath>$(GameDir)\Hollow Knight Silksong_Data\Managed\PlayMaker.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(GameDir)\Hollow Knight Silksong_Data\Managed\Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <!-- RandomizerCore (nuget.org) -->
+    <PackageReference Include="RandomizerCore" Version="2.1.2" />
+    <PackageReference Include="RandomizerCore.Json" Version="1.1.1" />
   </ItemGroup>
 
   <ItemGroup>

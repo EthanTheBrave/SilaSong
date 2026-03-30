@@ -48,8 +48,8 @@ namespace SilksongRando.Logging
             foreach (var area in byArea)
             {
                 sb.AppendLine($"[{area.Key}]");
-                foreach (var (loc, item) in area.OrderBy(kv => kv.Key))
-                    sb.AppendLine($"  {loc,-48} <- {item}");
+                foreach (var kv in area.OrderBy(x => x.Key))
+                    sb.AppendLine($"  {kv.Key,-48} <- {kv.Value}");
                 sb.AppendLine();
             }
 
@@ -78,12 +78,12 @@ namespace SilksongRando.Logging
             sb.AppendLine("REMAINING");
             sb.AppendLine("---------");
 
-            foreach (var (loc, item) in _placements.OrderBy(kv => kv.Key))
+            foreach (var kv in _placements.OrderBy(x => x.Key))
             {
-                if (collected.Contains(loc)) continue;
-                var reachable = RandoPlugin.Instance.Controller?.IsReachable(loc) ?? false;
+                if (collected.Contains(kv.Key)) continue;
+                var reachable = RandoPlugin.Instance.Controller?.IsReachable(kv.Key) ?? false;
                 var tag = reachable ? "[REACHABLE]" : "[LOCKED]   ";
-                sb.AppendLine($"  {tag} {loc,-44} <- {item}");
+                sb.AppendLine($"  {tag} {kv.Key,-44} <- {kv.Value}");
             }
 
             Write(sb, "TrackerLog");

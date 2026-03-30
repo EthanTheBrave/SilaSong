@@ -16,7 +16,7 @@ namespace SilksongRando.Hooks
 
         [HarmonyPatch(typeof(GameManager), nameof(GameManager.BeginSceneTransition))]
         [HarmonyPrefix]
-        static void OnBeginSceneTransition(SceneLoadInfo info)
+        static void OnBeginSceneTransition(GameManager.SceneLoadInfo info)
         {
             if (!RandoPlugin.Instance.IsRandoActive) return;
             if (_randoStarted) return;

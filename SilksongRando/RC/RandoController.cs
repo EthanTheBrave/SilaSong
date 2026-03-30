@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using RandomizerCore;
 using RandomizerCore.Logic;
 using RandomizerCore.Randomization;
-using SilksongIC;
 using SilksongRando.Settings;
 
 namespace SilksongRando.RC
@@ -12,11 +11,12 @@ namespace SilksongRando.RC
     {
         private readonly RandoSettings _settings;
         private readonly RandoSaveData _saveData;
-        private Dictionary<string, string> _placements = new();
+        private Dictionary<string, string> _placements = new Dictionary<string, string>();
 
         // Kept alive to answer IsReachable() queries during a session
         private LogicManager? _lm;
         private ProgressionManager? _pm;
+        private List<string> _startItemNames = new List<string>();
 
         public IReadOnlyDictionary<string, string> Placements => _placements;
 
@@ -31,27 +31,23 @@ namespace SilksongRando.RC
         public void Run()
         {
             _lm = RCData.GetLogicManager();
-            var ctx = BuildContext(_lm);
+            var (ctx, stages) = BuildContext(_lm);
 
-            _placements = Randomize(ctx, _settings.Seed);
+            _placements = Randomize(ctx, stages, _settings.Seed);
             RandoPlugin.Logger.LogInfo($"[RandoController] Done. {_placements.Count} placements.");
 
-            // Build a fresh ProgressionManager for reachability queries
             RebuildProgressionManager();
         }
 
         // ── Reachability ─────────────────────────────────────────────────
 
-        /// <summary>
-        /// Returns true if the given location is currently reachable
-        /// based on items the player has already collected.
-        /// </summary>
         public bool IsReachable(string locationName)
         {
             if (_lm == null || _pm == null) return false;
             try
             {
-                var loc = _lm.GetLocationStrict(locationName);
+                if (!_lm.LogicLookup.TryGetValue(locationName, out var loc))
+                    return false;
                 return loc.CanGet(_pm);
             }
             catch
@@ -60,32 +56,29 @@ namespace SilksongRando.RC
             }
         }
 
-        /// <summary>Rebuild the ProgressionManager from collected items in SaveData.</summary>
         public void RebuildProgressionManager()
         {
             if (_lm == null) return;
 
             _pm = new ProgressionManager(_lm, null);
 
-            // Add all items the player has collected
             foreach (var locName in _saveData.CollectedLocations)
             {
                 if (!_placements.TryGetValue(locName, out var itemName)) continue;
-                var item = _lm.GetItemStrict(itemName);
-                _pm.Add(item);
+                if (_lm.ItemLookup.TryGetValue(itemName, out var item))
+                    _pm.Add(item);
             }
 
-            // Add start items
-            foreach (var itemName in _saveData.StartItems)
+            foreach (var itemName in _startItemNames)
             {
-                var item = _lm.GetItemStrict(itemName);
-                _pm.Add(item);
+                if (_lm.ItemLookup.TryGetValue(itemName, out var item))
+                    _pm.Add(item);
             }
         }
 
         // ── Context building ──────────────────────────────────────────────
 
-        private RandoContext BuildContext(LogicManager lm)
+        private (SilksongRandoContext ctx, RandomizationStage[] stages) BuildContext(LogicManager lm)
         {
             var rb = new RequestBuilder(_settings, lm);
 
@@ -102,25 +95,27 @@ namespace SilksongRando.RC
             foreach (var item in _settings.Start.StartItems)
                 rb.AddStartItem(item);
 
-            // Allow connection mods to inject custom content
             var connCtx = new Connections.ConnectionContext(rb);
             Connections.ConnectionsAPI.ApplyAll(connCtx);
 
+            _startItemNames = new List<string>(_settings.Start.StartItems);
             return rb.Build();
         }
 
         // ── Algorithm ─────────────────────────────────────────────────────
 
-        private static Dictionary<string, string> Randomize(RandoContext ctx, int seed)
+        private static Dictionary<string, string> Randomize(
+            SilksongRandoContext ctx, RandomizationStage[] stages, int seed)
         {
             var rng        = new Random(seed);
-            var randomizer = new Randomizer(rng, ctx);
-            var groups     = randomizer.Run();
+            var randomizer = new Randomizer(rng, ctx, stages);
+            var allResults = randomizer.Run();
 
             var result = new Dictionary<string, string>();
-            foreach (var group in groups)
-                foreach (var placement in group.Placements)
-                    result[placement.Location.Name] = placement.Item.Name;
+            foreach (var stageResult in allResults)
+                foreach (var groupPlacements in stageResult)
+                    foreach (var p in groupPlacements)
+                        result[p.Location.Name] = p.Item.Name;
 
             return result;
         }

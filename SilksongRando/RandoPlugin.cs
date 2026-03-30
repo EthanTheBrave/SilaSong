@@ -1,21 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
 using BepInEx;
+using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
-using Silksong.DataManager;
-using Silksong.GameModeManager;
 using SilksongIC;
 using SilksongRando.IC;
 using SilksongRando.Logging;
 using SilksongRando.RC;
 using SilksongRando.Settings;
 using SilksongRando.UI;
-using SilksongRando.Logging;
 
 namespace SilksongRando
 {
     [BepInPlugin(GUID, Name, Version)]
     [BepInDependency(SilksongICPlugin.GUID)]
-    public class RandoPlugin : BaseUnityPlugin, ISaveDataMod<RandoSaveData>
+    public class RandoPlugin : BaseUnityPlugin
     {
         public const string GUID    = "com.silksongrando.rando";
         public const string Name    = "SilksongRando";
@@ -28,6 +28,10 @@ namespace SilksongRando
         public RandoSaveData SaveData { get; private set; } = new();
         public RandoController? Controller { get; private set; }
 
+        // Config entries — edit BepInEx/config/com.silksongrando.rando.cfg to change these.
+        private ConfigEntry<bool> _cfgEnabled  = null!;
+        private ConfigEntry<int>  _cfgSeed     = null!;
+
         private Harmony _harmony = null!;
 
         private void Awake()
@@ -35,21 +39,20 @@ namespace SilksongRando
             Instance = this;
             Logger   = base.Logger;
 
-            // Register all items + locations with SilksongIC before anything else
-            ICRegistrar.RegisterAll();
+            _cfgEnabled = Config.Bind("General", "Enabled", false,
+                "Set to true to activate the randomizer for the next new game.");
+            _cfgSeed = Config.Bind("General", "Seed", 0,
+                "Seed for the randomizer. 0 = random seed each run.");
 
-            // Register the "Randomiser" game mode on the new-game screen
-            GameModeManager.RegisterGameMode(new GameMode(
-                id:          "Randomiser",
-                displayName: "Randomiser",
-                description: "Items are shuffled throughout the world.",
-                onStart:     OnRandoModeSelected
-            ));
+            Settings.Seed = _cfgSeed.Value;
+
+            // Register all items + locations with SilksongIC
+            ICRegistrar.RegisterAll();
 
             // Initialize map overlay
             RandoMap.Initialize();
 
-            // Hook item collection to show notification UI and refresh tracker log
+            // Hook item collection for notification UI and tracker log refresh
             ItemManager.Instance.OnItemCollected += ItemNotification.Show;
             ItemManager.Instance.OnItemCollected += OnItemCollected;
 
@@ -59,44 +62,43 @@ namespace SilksongRando
             Logger.LogInfo($"[SilksongRando] Loaded v{Version}");
         }
 
-        // ── ISaveDataMod ──────────────────────────────────────────────────
+        // ── Save / Load ───────────────────────────────────────────────────────
+        // Called by SaveHook / LoadHook Harmony patches.
 
-        public RandoSaveData OnSave() => SaveData;
-
-        public RandoSaveData OnLoad(RandoSaveData data)
+        public void OnSave()
         {
-            SaveData = data ?? new RandoSaveData();
+            SaveStateManager.Save(SaveData);
+        }
 
-            if (SaveData.IsActive)
+        public void OnLoad()
+        {
+            var loaded = SaveStateManager.Load();
+            if (loaded != null)
             {
-                // Re-apply placements from save
-                ItemManager.Instance.ApplyPlacements(SaveData.Placements, SaveData.CollectedLocations);
-                Controller = new RandoController(Settings, SaveData);
-                Logger.LogInfo($"[SilksongRando] Loaded rando save (seed {SaveData.Seed})");
+                SaveData = loaded;
+                if (SaveData.IsActive)
+                {
+                    ItemManager.Instance.ApplyPlacements(SaveData.Placements, SaveData.CollectedLocations);
+                    Controller = new RandoController(Settings, SaveData);
+                    Logger.LogInfo($"[SilksongRando] Loaded rando save (seed {SaveData.Seed})");
+                }
             }
-
-            return SaveData;
         }
 
         public void OnNewSave()
         {
-            SaveData = new RandoSaveData();
+            SaveData   = new RandoSaveData();
             Controller = null;
+            SaveStateManager.Delete();
         }
 
-        // ── Game mode callback ─────────────────────────────────────────────
-
-        private void OnRandoModeSelected()
-        {
-            // Seed will be set from the seed menu; fall back to random if not set
-            if (Settings.Seed == 0)
-                Settings.Seed = GenerateRandomSeed();
-        }
-
-        // ── Called by NewGameHook ─────────────────────────────────────────
+        // ── Called by NewGameHook when rando mode is active ──────────────────
 
         public void StartRando()
         {
+            if (Settings.Seed == 0)
+                Settings.Seed = GenerateRandomSeed();
+
             SaveData.Seed     = Settings.Seed;
             SaveData.IsActive = true;
 
@@ -105,33 +107,23 @@ namespace SilksongRando
             Controller = new RandoController(Settings, SaveData);
             Controller.Run();
 
-            // Persist placements into save data immediately
-            SaveData.Placements = new System.Collections.Generic.Dictionary<string, string>(
-                Controller.Placements);
-
-            // Apply to ItemManager
+            SaveData.Placements = Controller.Placements.ToDictionary(kv => kv.Key, kv => kv.Value);
             ItemManager.Instance.ApplyPlacements(SaveData.Placements, SaveData.CollectedLocations);
 
-            // Write logs
             new RandoLogger(SaveData.Seed, SaveData.Placements).Write();
         }
 
-        public bool IsRandoActive => SaveData.IsActive;
+        public bool IsRandoActive   => SaveData.IsActive;
+        public bool IsRandoEnabled  => _cfgEnabled.Value;
 
-        private static int GenerateRandomSeed()
-        {
-            return (int)(System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() & 0x7FFFFFFF);
-        }
+        private static int GenerateRandomSeed() =>
+            (int)(System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() & 0x7FFFFFFF);
 
-        private void OnItemCollected(string locationName, SilksongIC.AbstractItem item)
+        private void OnItemCollected(string locationName, AbstractItem item)
         {
-            // Persist to save data
             SaveData.MarkCollected(locationName);
-
-            // Update controller's progression manager for reachability queries
             Controller?.RebuildProgressionManager();
 
-            // Refresh tracker log on disk
             if (SaveData.Placements.Count > 0)
                 new RandoLogger(SaveData.Seed, SaveData.Placements).Write();
         }

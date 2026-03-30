@@ -33,14 +33,18 @@ namespace SilksongIC
 
         public void RegisterItem(AbstractItem item)
         {
-            if (!_items.TryAdd(item.Name, item))
+            if (_items.ContainsKey(item.Name))
                 _log?.LogWarning($"[SilksongIC] Duplicate item registered: {item.Name}");
+            else
+                _items[item.Name] = item;
         }
 
         public void RegisterLocation(AbstractLocation location)
         {
-            if (!_locations.TryAdd(location.Name, location))
+            if (_locations.ContainsKey(location.Name))
                 _log?.LogWarning($"[SilksongIC] Duplicate location registered: {location.Name}");
+            else
+                _locations[location.Name] = location;
         }
 
         public IReadOnlyDictionary<string, AbstractItem> Items => _items;

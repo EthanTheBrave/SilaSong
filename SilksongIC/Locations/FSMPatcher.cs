@@ -1,4 +1,6 @@
+using System.Linq;
 using BepInEx.Logging;
+using HutongGames.PlayMaker;
 
 namespace SilksongIC.Locations
 {
@@ -13,8 +15,7 @@ namespace SilksongIC.Locations
 
         /// <summary>
         /// Inserts a custom FsmStateAction before the item-give state in the FSM.
-        /// The action: delivers the randomized item, then transitions to a "Done" state
-        /// that skips the vanilla item-give logic.
+        /// The action delivers the randomized item before the vanilla give logic runs.
         /// </summary>
         public static void InsertDeliverAction(PlayMakerFSM fsm, string locationName)
         {
@@ -25,15 +26,19 @@ namespace SilksongIC.Locations
                 return;
             }
 
-            var state = fsm.GetState(triggerState);
+            var state = fsm.FsmStates.FirstOrDefault(s => s.Name == triggerState);
             if (state == null)
             {
                 _log?.LogWarning($"[SilksongIC] FSM state '{triggerState}' not found on '{fsm.gameObject.name}/{fsm.FsmName}'");
                 return;
             }
 
-            // Prepend our delivery action to the state's action list
-            state.InsertAction(new DeliverItemAction(locationName), 0);
+            // Prepend our delivery action to the state's action array
+            var existing = state.Actions ?? new FsmStateAction[0];
+            var updated = new FsmStateAction[existing.Length + 1];
+            updated[0] = new DeliverItemAction(locationName);
+            existing.CopyTo(updated, 1);
+            state.Actions = updated;
             _log?.LogDebug($"[SilksongIC] Patched FSM state '{triggerState}' for location '{locationName}'");
         }
 

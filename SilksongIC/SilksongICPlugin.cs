@@ -11,7 +11,7 @@ namespace SilksongIC
     /// This plugin manages item/location registration and scene hooks.
     /// The randomizer (SilksongRando) depends on this and registers its content here.
     /// </summary>
-    [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+    [BepInPlugin(GUID, Name, Version)]
     public class SilksongICPlugin : BaseUnityPlugin
     {
         public const string GUID = "com.silksongrando.ic";

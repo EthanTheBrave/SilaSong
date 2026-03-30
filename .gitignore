@@ -5,3 +5,7 @@ obj/
 *.suo
 *.nupkg
 .claude/
+
+# extraction tool output
+tools/output/
+*.bak

@@ -1,8 +1,8 @@
 using System;
 using System.IO;
 using System.Reflection;
-using RandomizerCore.Logic;
 using RandomizerCore.Json;
+using RandomizerCore.Logic;
 
 namespace SilksongRando.RC
 {
@@ -21,27 +21,25 @@ namespace SilksongRando.RC
         private static LogicManager BuildLogicManager()
         {
             var ldb = new LogicManagerBuilder();
+            var fmt = new JsonLogicFormat();
 
-            // Load logic files from embedded resources
-            ldb.DeserializeJson(LogicManagerBuilder.JsonType.Terms,      ReadResource("Logic.terms.json"));
-            ldb.DeserializeJson(LogicManagerBuilder.JsonType.Macros,     ReadResource("Logic.macros.json"));
-            ldb.DeserializeJson(LogicManagerBuilder.JsonType.Waypoints,  ReadResource("Logic.waypoints.json"));
-            ldb.DeserializeJson(LogicManagerBuilder.JsonType.Transitions, ReadResource("Logic.transitions.json"));
-            ldb.DeserializeJson(LogicManagerBuilder.JsonType.Locations,  ReadResource("Logic.locations.json"));
-            ldb.DeserializeJson(LogicManagerBuilder.JsonType.Items,      ReadResource("Logic.items.json"));
-            ldb.DeserializeJson(LogicManagerBuilder.JsonType.StateData,  ReadResource("Logic.state.json"));
+            ldb.DeserializeFile(LogicFileType.Terms,      fmt, OpenResource("Logic.terms.json"));
+            ldb.DeserializeFile(LogicFileType.Macros,     fmt, OpenResource("Logic.macros.json"));
+            ldb.DeserializeFile(LogicFileType.Waypoints,  fmt, OpenResource("Logic.waypoints.json"));
+            ldb.DeserializeFile(LogicFileType.Transitions, fmt, OpenResource("Logic.transitions.json"));
+            ldb.DeserializeFile(LogicFileType.Locations,  fmt, OpenResource("Logic.locations.json"));
+            ldb.DeserializeFile(LogicFileType.Items,      fmt, OpenResource("Logic.items.json"));
+            ldb.DeserializeFile(LogicFileType.StateData,  fmt, OpenResource("Logic.state.json"));
 
-            return ldb.LogicManager;
+            return new LogicManager(ldb);
         }
 
-        private static string ReadResource(string name)
+        private static Stream OpenResource(string name)
         {
-            var asm = Assembly.GetExecutingAssembly();
+            var asm      = Assembly.GetExecutingAssembly();
             var fullName = $"SilksongRando.Resources.{name}";
-            using var stream = asm.GetManifestResourceStream(fullName)
+            return asm.GetManifestResourceStream(fullName)
                 ?? throw new InvalidOperationException($"Embedded resource not found: {fullName}");
-            using var reader = new StreamReader(stream);
-            return reader.ReadToEnd();
         }
     }
 }
