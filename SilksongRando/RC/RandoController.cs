@@ -90,7 +90,8 @@ namespace SilksongRando.RC
             if (_settings.Pools.PollipBulbs) rb.AddPool("PollipBulbs");
             if (_settings.Pools.ShopItems)   rb.AddPool("ShopItems");
             if (_settings.Pools.GeoRocks)    rb.AddPool("GeoRocks");
-            if (_settings.Pools.Crests)      rb.AddPool("Crests");
+            if (_settings.Pools.Crests)        rb.AddPool("Crests");
+            if (_settings.Pools.Collectables)  rb.AddPool("Collectables");
 
             foreach (var item in _settings.Start.StartItems)
                 rb.AddStartItem(item);

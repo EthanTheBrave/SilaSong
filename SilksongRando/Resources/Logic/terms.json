@@ -7,6 +7,7 @@
     "Ability_SilkSphere",
     "Ability_Brolly",
     "Ability_Faydown",
+    "Ability_HarpoonDash",
     "Melody_Vault",
     "Melody_Architect",
     "Melody_Conductor",
@@ -16,8 +17,6 @@
     "Bell_03",
     "Bell_04",
     "Bell_05",
-    "Trinket_Mossberry",
-    "Trinket_ShellFlower",
-    "Trinket_WardKey"
+    "Bell_06"
   ]
 }

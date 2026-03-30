@@ -32,7 +32,8 @@ namespace SilksongRando.IC
             ["Needolin"]   = "hasNeedolin",
             ["SilkSphere"] = "hasThreadSphere",
             ["Brolly"]     = "hasBrolly",
-            ["Faydown"]    = "hasSilkCharge",
+            ["Faydown"]      = "hasSilkCharge",
+            ["HarpoonDash"]  = "hasHarpoonDash",  // field name TBD — verify in-game
         };
 
         public static void RegisterAll()

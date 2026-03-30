@@ -1,41 +1,625 @@
 [
-  // ── Abilities ──────────────────────────────────────────────────────────
-  { "name": "Ability_Silkspear",  "type": "ability", "uiName": "Silkspear",       "abilityId": "Silkspear"  },
-  { "name": "Ability_Sprint",     "type": "ability", "uiName": "Sprint",           "abilityId": "Sprint"     },
-  { "name": "Ability_Walljump",   "type": "ability", "uiName": "Walljump",         "abilityId": "Walljump"   },
-  { "name": "Ability_Needolin",   "type": "ability", "uiName": "Needolin",         "abilityId": "Needolin"   },
-  { "name": "Ability_SilkSphere", "type": "ability", "uiName": "Silk Sphere",      "abilityId": "SilkSphere" },
-  { "name": "Ability_Brolly",     "type": "ability", "uiName": "Brolly",           "abilityId": "Brolly"     },
-  { "name": "Ability_Faydown",    "type": "ability", "uiName": "Faydown",          "abilityId": "Faydown"    },
-
-  // ── Melodies (win conditions) ──────────────────────────────────────────
-  { "name": "Melody_Vault",       "type": "melody",  "uiName": "Vault Melody",     "melodyId": "melody_Vault"     },
-  { "name": "Melody_Architect",   "type": "melody",  "uiName": "Architect Melody", "melodyId": "melody_Architect" },
-  { "name": "Melody_Conductor",   "type": "melody",  "uiName": "Conductor Melody", "melodyId": "melody_Conductor" },
-
-  // ── Bells (needed for Act 2) ───────────────────────────────────────────
-  { "name": "Bell_01", "type": "bell", "uiName": "Bell",  "itemId": "Bell_01" },
-  { "name": "Bell_02", "type": "bell", "uiName": "Bell",  "itemId": "Bell_02" },
-  { "name": "Bell_03", "type": "bell", "uiName": "Bell",  "itemId": "Bell_03" },
-  { "name": "Bell_04", "type": "bell", "uiName": "Bell",  "itemId": "Bell_04" },
-  { "name": "Bell_05", "type": "bell", "uiName": "Bell",  "itemId": "Bell_05" },
-
-  // ── Heart Pieces ───────────────────────────────────────────────────────
-  { "name": "Heart_Piece", "type": "heartpiece", "uiName": "Heart Piece" },
-
-  // ── Trinkets ───────────────────────────────────────────────────────────
-  { "name": "Trinket_Mossberry",           "type": "trinket", "uiName": "Mossberry",             "itemId": "Mossberry"             },
-  { "name": "Trinket_RosaryFrayed",        "type": "trinket", "uiName": "Frayed Rosary",          "itemId": "Rosary_Set_Frayed"     },
-  { "name": "Trinket_RosarySmall",         "type": "trinket", "uiName": "Small Rosary",           "itemId": "Rosary_Set_Small"      },
-  { "name": "Trinket_BoneNecklace",        "type": "trinket", "uiName": "Bone Necklace",          "itemId": "Bone Necklace"         },
-  { "name": "Trinket_SealChit",            "type": "trinket", "uiName": "Seal Chit",              "itemId": "Seal Chit"             },
-  { "name": "Trinket_StraightPin",         "type": "trinket", "uiName": "Straight Pin",           "itemId": "Straight Pin"          },
-  { "name": "Trinket_TriPin",              "type": "trinket", "uiName": "Tri Pin",                "itemId": "Tri Pin"               },
-  { "name": "Trinket_ShardPouch",          "type": "trinket", "uiName": "Shard Pouch",            "itemId": "Shard Pouch"           },
-  { "name": "Trinket_ShellFlower",         "type": "trinket", "uiName": "Shell Flower",           "itemId": "Shell Flower"          },
-  { "name": "Trinket_BarbedWire",          "type": "trinket", "uiName": "Barbed Wire",            "itemId": "Barbed Wire"           },
-  { "name": "Trinket_MagnetiteDice",       "type": "trinket", "uiName": "Magnetite Dice",         "itemId": "Magnetite Dice"        },
-  { "name": "Trinket_CrestSocketUnlocker", "type": "trinket", "uiName": "Crest Socket Unlocker",  "itemId": "Crest Socket Unlocker" },
-  { "name": "Trinket_WardKey",             "type": "trinket", "uiName": "Ward Key",               "itemId": "Ward Key"              },
-  { "name": "Trinket_LibrarianMelody",     "type": "trinket", "uiName": "Librarian Melody Cylinder", "itemId": "Librarian Melody Cylinder" }
+  {
+    "name": "Ability_Silkspear",
+    "type": "ability",
+    "uiName": "Silkspear",
+    "abilityId": "Silkspear"
+  },
+  {
+    "name": "Ability_Sprint",
+    "type": "ability",
+    "uiName": "Sprint",
+    "abilityId": "Sprint"
+  },
+  {
+    "name": "Ability_Walljump",
+    "type": "ability",
+    "uiName": "Walljump",
+    "abilityId": "Walljump"
+  },
+  {
+    "name": "Ability_Needolin",
+    "type": "ability",
+    "uiName": "Needolin",
+    "abilityId": "Needolin"
+  },
+  {
+    "name": "Ability_SilkSphere",
+    "type": "ability",
+    "uiName": "Silk Sphere",
+    "abilityId": "SilkSphere"
+  },
+  {
+    "name": "Ability_Brolly",
+    "type": "ability",
+    "uiName": "Brolly",
+    "abilityId": "Brolly"
+  },
+  {
+    "name": "Ability_Faydown",
+    "type": "ability",
+    "uiName": "Faydown",
+    "abilityId": "Faydown"
+  },
+  {
+    "name": "Ability_HarpoonDash",
+    "type": "ability",
+    "uiName": "Harpoon Dash",
+    "abilityId": "HarpoonDash"
+  },
+  {
+    "name": "Melody_Vault",
+    "type": "melody",
+    "uiName": "Vault Melody",
+    "itemId": "melody_Vault"
+  },
+  {
+    "name": "Melody_Architect",
+    "type": "melody",
+    "uiName": "Architect Melody",
+    "itemId": "melody_Architect"
+  },
+  {
+    "name": "Melody_Conductor",
+    "type": "melody",
+    "uiName": "Conductor Melody",
+    "itemId": "melody_Conductor"
+  },
+  {
+    "name": "Bell_01",
+    "type": "bell",
+    "uiName": "Bell",
+    "itemId": "Bell_01"
+  },
+  {
+    "name": "Bell_02",
+    "type": "bell",
+    "uiName": "Bell",
+    "itemId": "Bell_02"
+  },
+  {
+    "name": "Bell_03",
+    "type": "bell",
+    "uiName": "Bell",
+    "itemId": "Bell_03"
+  },
+  {
+    "name": "Bell_04",
+    "type": "bell",
+    "uiName": "Bell",
+    "itemId": "Bell_04"
+  },
+  {
+    "name": "Bell_05",
+    "type": "bell",
+    "uiName": "Bell",
+    "itemId": "Bell_05"
+  },
+  {
+    "name": "Bell_06",
+    "type": "bell",
+    "uiName": "Bell",
+    "itemId": "Bell_06"
+  },
+  {
+    "name": "Heart_Piece",
+    "type": "heartpiece",
+    "uiName": "Heart Piece"
+  },
+  {
+    "name": "Collectable_Memento_Surface",
+    "type": "trinket",
+    "uiName": "Memento Surface",
+    "itemId": "Memento Surface"
+  },
+  {
+    "name": "Collectable_Ancient_Egg_Abyss_Middle",
+    "type": "trinket",
+    "uiName": "Ancient Egg Abyss Middle",
+    "itemId": "Ancient Egg Abyss Middle"
+  },
+  {
+    "name": "Collectable_Farsight",
+    "type": "trinket",
+    "uiName": "Farsight",
+    "itemId": "Farsight"
+  },
+  {
+    "name": "Collectable_Rosary_Set_Medium",
+    "type": "trinket",
+    "uiName": "Rosary_Set_Medium",
+    "itemId": "Rosary_Set_Medium"
+  },
+  {
+    "name": "Collectable_Vintage_Nectar",
+    "type": "trinket",
+    "uiName": "Vintage Nectar",
+    "itemId": "Vintage Nectar"
+  },
+  {
+    "name": "Collectable_Crest_Socket_Unlocker",
+    "type": "trinket",
+    "uiName": "Crest Socket Unlocker",
+    "itemId": "Crest Socket Unlocker"
+  },
+  {
+    "name": "Collectable_Curve_Claws",
+    "type": "trinket",
+    "uiName": "Curve Claws",
+    "itemId": "Curve Claws"
+  },
+  {
+    "name": "Collectable_Fractured_Mask",
+    "type": "trinket",
+    "uiName": "Fractured Mask",
+    "itemId": "Fractured Mask"
+  },
+  {
+    "name": "Collectable_Hunter_Heart",
+    "type": "trinket",
+    "uiName": "Hunter Heart",
+    "itemId": "Hunter Heart"
+  },
+  {
+    "name": "Collectable_Rosary_Set_Frayed",
+    "type": "trinket",
+    "uiName": "Rosary_Set_Frayed",
+    "itemId": "Rosary_Set_Frayed"
+  },
+  {
+    "name": "Collectable_Tool_Metal",
+    "type": "trinket",
+    "uiName": "Tool Metal",
+    "itemId": "Tool Metal"
+  },
+  {
+    "name": "Collectable_Rosary_Set_Small",
+    "type": "trinket",
+    "uiName": "Rosary_Set_Small",
+    "itemId": "Rosary_Set_Small"
+  },
+  {
+    "name": "Collectable_Pale_Oil",
+    "type": "trinket",
+    "uiName": "Pale_Oil",
+    "itemId": "Pale_Oil"
+  },
+  {
+    "name": "Collectable_Maggot_Charm",
+    "type": "trinket",
+    "uiName": "Maggot Charm",
+    "itemId": "Maggot Charm"
+  },
+  {
+    "name": "Collectable_Materium",
+    "type": "trinket",
+    "uiName": "Materium",
+    "itemId": "Materium"
+  },
+  {
+    "name": "Collectable_Lightning_Rod",
+    "type": "trinket",
+    "uiName": "Lightning Rod",
+    "itemId": "Lightning Rod"
+  },
+  {
+    "name": "Collectable_Cog_Heart_Pieces",
+    "type": "trinket",
+    "uiName": "Cog Heart Pieces",
+    "itemId": "Cog Heart Pieces"
+  },
+  {
+    "name": "Collectable_Shard_Pouch",
+    "type": "trinket",
+    "uiName": "Shard Pouch",
+    "itemId": "Shard Pouch"
+  },
+  {
+    "name": "Collectable_Seal_Chit_Aspid_01",
+    "type": "trinket",
+    "uiName": "Seal Chit Aspid_01",
+    "itemId": "Seal Chit Aspid_01"
+  },
+  {
+    "name": "Collectable_Simple_Key",
+    "type": "trinket",
+    "uiName": "Simple Key",
+    "itemId": "Simple Key"
+  },
+  {
+    "name": "Collectable_Wisp_Lantern",
+    "type": "trinket",
+    "uiName": "Wisp Lantern",
+    "itemId": "Wisp Lantern"
+  },
+  {
+    "name": "Collectable_Harpoon",
+    "type": "trinket",
+    "uiName": "Harpoon",
+    "itemId": "Harpoon"
+  },
+  {
+    "name": "Collectable_Memento_Garmond",
+    "type": "trinket",
+    "uiName": "Memento Garmond",
+    "itemId": "Memento Garmond"
+  },
+  {
+    "name": "Collectable_Revenge_Crystal",
+    "type": "trinket",
+    "uiName": "Revenge Crystal",
+    "itemId": "Revenge Crystal"
+  },
+  {
+    "name": "Collectable_Straight_Pin",
+    "type": "trinket",
+    "uiName": "Straight Pin",
+    "itemId": "Straight Pin"
+  },
+  {
+    "name": "Collectable_Skull_King_Fragment",
+    "type": "trinket",
+    "uiName": "Skull King Fragment",
+    "itemId": "Skull King Fragment"
+  },
+  {
+    "name": "Collectable_Bone_Necklace",
+    "type": "trinket",
+    "uiName": "Bone Necklace",
+    "itemId": "Bone Necklace"
+  },
+  {
+    "name": "Collectable_Weighted_Anklet",
+    "type": "trinket",
+    "uiName": "Weighted Anklet",
+    "itemId": "Weighted Anklet"
+  },
+  {
+    "name": "Collectable_Beastfly_Remains",
+    "type": "trinket",
+    "uiName": "Beastfly Remains",
+    "itemId": "Beastfly Remains"
+  },
+  {
+    "name": "Collectable_Bone_Record_Bone_East_14",
+    "type": "trinket",
+    "uiName": "Bone Record Bone_East_14",
+    "itemId": "Bone Record Bone_East_14"
+  },
+  {
+    "name": "Collectable_Ant_Trapper_Item",
+    "type": "trinket",
+    "uiName": "Ant Trapper Item",
+    "itemId": "Ant Trapper Item"
+  },
+  {
+    "name": "Collectable_Curve_Claws_Upgraded",
+    "type": "trinket",
+    "uiName": "Curve Claws Upgraded",
+    "itemId": "Curve Claws Upgraded"
+  },
+  {
+    "name": "Collectable_Rosary_Set_Huge_White",
+    "type": "trinket",
+    "uiName": "Rosary_Set_Huge_White",
+    "itemId": "Rosary_Set_Huge_White"
+  },
+  {
+    "name": "Collectable_Weaver_Record_Sprint_Challenge",
+    "type": "trinket",
+    "uiName": "Weaver Record Sprint_Challenge",
+    "itemId": "Weaver Record Sprint_Challenge"
+  },
+  {
+    "name": "Collectable_Weaver_Totem_Bonetown_upper_room",
+    "type": "trinket",
+    "uiName": "Weaver Totem Bonetown_upper_room",
+    "itemId": "Weaver Totem Bonetown_upper_room"
+  },
+  {
+    "name": "Collectable_Clover_Heart",
+    "type": "trinket",
+    "uiName": "Clover Heart",
+    "itemId": "Clover Heart"
+  },
+  {
+    "name": "Collectable_Pristine_Core",
+    "type": "trinket",
+    "uiName": "Pristine Core",
+    "itemId": "Pristine Core"
+  },
+  {
+    "name": "Collectable_Zap_Imbuement",
+    "type": "trinket",
+    "uiName": "Zap Imbuement",
+    "itemId": "Zap Imbuement"
+  },
+  {
+    "name": "Collectable_Magnetite_Dice",
+    "type": "trinket",
+    "uiName": "Magnetite Dice",
+    "itemId": "Magnetite Dice"
+  },
+  {
+    "name": "Collectable_Great_Shard",
+    "type": "trinket",
+    "uiName": "Great Shard",
+    "itemId": "Great Shard"
+  },
+  {
+    "name": "Collectable_Grey_Memento",
+    "type": "trinket",
+    "uiName": "Grey Memento",
+    "itemId": "Grey Memento"
+  },
+  {
+    "name": "Collectable_Coral_Ingredient",
+    "type": "trinket",
+    "uiName": "Coral Ingredient",
+    "itemId": "Coral Ingredient"
+  },
+  {
+    "name": "Collectable_Conch_Drill",
+    "type": "trinket",
+    "uiName": "Conch Drill",
+    "itemId": "Conch Drill"
+  },
+  {
+    "name": "Collectable_Coral_Heart",
+    "type": "trinket",
+    "uiName": "Coral Heart",
+    "itemId": "Coral Heart"
+  },
+  {
+    "name": "Collectable_Shell_Satchel",
+    "type": "trinket",
+    "uiName": "Shell Satchel",
+    "itemId": "Shell Satchel"
+  },
+  {
+    "name": "Collectable_Dead_Mans_Purse",
+    "type": "trinket",
+    "uiName": "Dead Mans Purse",
+    "itemId": "Dead Mans Purse"
+  },
+  {
+    "name": "Collectable_Flintstone",
+    "type": "trinket",
+    "uiName": "Flintstone",
+    "itemId": "Flintstone"
+  },
+  {
+    "name": "Collectable_Bell_Bind",
+    "type": "trinket",
+    "uiName": "Bell Bind",
+    "itemId": "Bell Bind"
+  },
+  {
+    "name": "Collectable_Barbed_Wire",
+    "type": "trinket",
+    "uiName": "Barbed Wire",
+    "itemId": "Barbed Wire"
+  },
+  {
+    "name": "Collectable_Pickled_Roach_Egg",
+    "type": "trinket",
+    "uiName": "Pickled Roach Egg",
+    "itemId": "Pickled Roach Egg"
+  },
+  {
+    "name": "Collectable_Tack",
+    "type": "trinket",
+    "uiName": "Tack",
+    "itemId": "Tack"
+  },
+  {
+    "name": "Collectable_Tri_Pin",
+    "type": "trinket",
+    "uiName": "Tri Pin",
+    "itemId": "Tri Pin"
+  },
+  {
+    "name": "Collectable_Bone_Record_Greymoor_flooded_corridor",
+    "type": "trinket",
+    "uiName": "Bone Record Greymoor_flooded_corridor",
+    "itemId": "Bone Record Greymoor_flooded_corridor"
+  },
+  {
+    "name": "Collectable_Rosary_Cannon",
+    "type": "trinket",
+    "uiName": "Rosary Cannon",
+    "itemId": "Rosary Cannon"
+  },
+  {
+    "name": "Collectable_Psalm_Cylinder_Hang",
+    "type": "trinket",
+    "uiName": "Psalm Cylinder Hang",
+    "itemId": "Psalm Cylinder Hang"
+  },
+  {
+    "name": "Collectable_Weaver_Record_Conductor",
+    "type": "trinket",
+    "uiName": "Weaver Record Conductor",
+    "itemId": "Weaver Record Conductor"
+  },
+  {
+    "name": "Collectable_Reserve_Bind",
+    "type": "trinket",
+    "uiName": "Reserve Bind",
+    "itemId": "Reserve Bind"
+  },
+  {
+    "name": "Collectable_Rosary_Set_Large",
+    "type": "trinket",
+    "uiName": "Rosary_Set_Large",
+    "itemId": "Rosary_Set_Large"
+  },
+  {
+    "name": "Collectable_Psalm_Cylinder_Librarian",
+    "type": "trinket",
+    "uiName": "Psalm Cylinder Librarian",
+    "itemId": "Psalm Cylinder Librarian"
+  },
+  {
+    "name": "Collectable_Psalm_Cylinder_Library_Roof",
+    "type": "trinket",
+    "uiName": "Psalm Cylinder Library Roof",
+    "itemId": "Psalm Cylinder Library Roof"
+  },
+  {
+    "name": "Collectable_Librarian_Melody_Cylinder",
+    "type": "trinket",
+    "uiName": "Librarian Melody Cylinder",
+    "itemId": "Librarian Melody Cylinder"
+  },
+  {
+    "name": "Collectable_Dazzle_Bind_Upgraded",
+    "type": "trinket",
+    "uiName": "Dazzle Bind Upgraded",
+    "itemId": "Dazzle Bind Upgraded"
+  },
+  {
+    "name": "Collectable_Dazzle_Bind",
+    "type": "trinket",
+    "uiName": "Dazzle Bind",
+    "itemId": "Dazzle Bind"
+  },
+  {
+    "name": "Collectable_Crowman_Memento",
+    "type": "trinket",
+    "uiName": "Crowman Memento",
+    "itemId": "Crowman Memento"
+  },
+  {
+    "name": "Collectable_Crawbell",
+    "type": "trinket",
+    "uiName": "Crawbell",
+    "itemId": "Crawbell"
+  },
+  {
+    "name": "Collectable_Dock_Demo_Key",
+    "type": "trinket",
+    "uiName": "Dock Demo Key",
+    "itemId": "Dock Demo Key"
+  },
+  {
+    "name": "Collectable_Quick_Sling",
+    "type": "trinket",
+    "uiName": "Quick Sling",
+    "itemId": "Quick Sling"
+  },
+  {
+    "name": "Collectable_Wood_Witch_Item",
+    "type": "trinket",
+    "uiName": "Wood Witch Item",
+    "itemId": "Wood Witch Item"
+  },
+  {
+    "name": "Collectable_Snare_Soul_Swamp_Bug",
+    "type": "trinket",
+    "uiName": "Snare Soul Swamp Bug",
+    "itemId": "Snare Soul Swamp Bug"
+  },
+  {
+    "name": "Collectable_Broken_SilkShot",
+    "type": "trinket",
+    "uiName": "Broken SilkShot",
+    "itemId": "Broken SilkShot"
+  },
+  {
+    "name": "Collectable_Flower_Heart",
+    "type": "trinket",
+    "uiName": "Flower Heart",
+    "itemId": "Flower Heart"
+  },
+  {
+    "name": "Collectable_Weaver_Totem_Witch",
+    "type": "trinket",
+    "uiName": "Weaver Totem Witch",
+    "itemId": "Weaver Totem Witch"
+  },
+  {
+    "name": "Collectable_Weaver_Totem_Slab_Bottom",
+    "type": "trinket",
+    "uiName": "Weaver Totem Slab_Bottom",
+    "itemId": "Weaver Totem Slab_Bottom"
+  },
+  {
+    "name": "Collectable_Broodmother_Remains",
+    "type": "trinket",
+    "uiName": "Broodmother Remains",
+    "itemId": "Broodmother Remains"
+  },
+  {
+    "name": "Collectable_Ward_Key",
+    "type": "trinket",
+    "uiName": "Ward Key",
+    "itemId": "Ward Key"
+  },
+  {
+    "name": "Collectable_Psalm_Cylinder_Ward",
+    "type": "trinket",
+    "uiName": "Psalm Cylinder Ward",
+    "itemId": "Psalm Cylinder Ward"
+  },
+  {
+    "name": "Collectable_Screw_Attack",
+    "type": "trinket",
+    "uiName": "Screw Attack",
+    "itemId": "Screw Attack"
+  },
+  {
+    "name": "Collectable_Bone_Record_Understore_Map_Room",
+    "type": "trinket",
+    "uiName": "Bone Record Understore_Map_Room",
+    "itemId": "Bone Record Understore_Map_Room"
+  },
+  {
+    "name": "Collectable_Seal_Chit_Ward_Corpse",
+    "type": "trinket",
+    "uiName": "Seal Chit Ward Corpse",
+    "itemId": "Seal Chit Ward Corpse"
+  },
+  {
+    "name": "Collectable_Quickbind",
+    "type": "trinket",
+    "uiName": "Quickbind",
+    "itemId": "Quickbind"
+  },
+  {
+    "name": "Collectable_Seal_Chit_Silk_Siphon",
+    "type": "trinket",
+    "uiName": "Seal Chit Silk Siphon",
+    "itemId": "Seal Chit Silk Siphon"
+  },
+  {
+    "name": "Collectable_Ward_Boss_Key",
+    "type": "trinket",
+    "uiName": "Ward Boss Key",
+    "itemId": "Ward Boss Key"
+  },
+  {
+    "name": "Collectable_White_Ring",
+    "type": "trinket",
+    "uiName": "White Ring",
+    "itemId": "White Ring"
+  },
+  {
+    "name": "Collectable_Weaver_Record_Weave_08",
+    "type": "trinket",
+    "uiName": "Weaver Record Weave_08",
+    "itemId": "Weaver Record Weave_08"
+  },
+  {
+    "name": "Collectable_Silk_Snare",
+    "type": "trinket",
+    "uiName": "Silk Snare",
+    "itemId": "Silk Snare"
+  },
+  {
+    "name": "Collectable_Bone_Record_Wisp_Top",
+    "type": "trinket",
+    "uiName": "Bone Record Wisp Top",
+    "itemId": "Bone Record Wisp Top"
+  }
 ]

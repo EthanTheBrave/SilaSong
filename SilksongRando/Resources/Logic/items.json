@@ -1,21 +1,418 @@
 [
-  { "name": "Ability_Silkspear",  "logic": "Ability_Silkspear>0"  },
-  { "name": "Ability_Sprint",     "logic": "Ability_Sprint>0"     },
-  { "name": "Ability_Walljump",   "logic": "Ability_Walljump>0"   },
-  { "name": "Ability_Needolin",   "logic": "Ability_Needolin>0"   },
-  { "name": "Ability_SilkSphere", "logic": "Ability_SilkSphere>0" },
-  { "name": "Ability_Brolly",     "logic": "Ability_Brolly>0"     },
-  { "name": "Ability_Faydown",    "logic": "Ability_Faydown>0"    },
-  { "name": "Melody_Vault",       "logic": "Melody_Vault>0"       },
-  { "name": "Melody_Architect",   "logic": "Melody_Architect>0"   },
-  { "name": "Melody_Conductor",   "logic": "Melody_Conductor>0"   },
-  { "name": "Heart_Piece",        "logic": "Heart_Piece>0"        },
-  { "name": "Bell_01",            "logic": "Bell_01>0"            },
-  { "name": "Bell_02",            "logic": "Bell_02>0"            },
-  { "name": "Bell_03",            "logic": "Bell_03>0"            },
-  { "name": "Bell_04",            "logic": "Bell_04>0"            },
-  { "name": "Bell_05",            "logic": "Bell_05>0"            },
-  { "name": "Trinket_Mossberry",  "logic": "Trinket_Mossberry>0"  },
-  { "name": "Trinket_ShellFlower","logic": "Trinket_ShellFlower>0"},
-  { "name": "Trinket_WardKey",    "logic": "Trinket_WardKey>0"    }
+  {
+    "name": "Ability_Silkspear",
+    "logic": "Ability_Silkspear+1"
+  },
+  {
+    "name": "Ability_Sprint",
+    "logic": "Ability_Sprint+1"
+  },
+  {
+    "name": "Ability_Walljump",
+    "logic": "Ability_Walljump+1"
+  },
+  {
+    "name": "Ability_Needolin",
+    "logic": "Ability_Needolin+1"
+  },
+  {
+    "name": "Ability_SilkSphere",
+    "logic": "Ability_SilkSphere+1"
+  },
+  {
+    "name": "Ability_Brolly",
+    "logic": "Ability_Brolly+1"
+  },
+  {
+    "name": "Ability_Faydown",
+    "logic": "Ability_Faydown+1"
+  },
+  {
+    "name": "Ability_HarpoonDash",
+    "logic": "Ability_HarpoonDash+1"
+  },
+  {
+    "name": "Melody_Vault",
+    "logic": "Melody_Vault+1"
+  },
+  {
+    "name": "Melody_Architect",
+    "logic": "Melody_Architect+1"
+  },
+  {
+    "name": "Melody_Conductor",
+    "logic": "Melody_Conductor+1"
+  },
+  {
+    "name": "Bell_01",
+    "logic": "Bell_01+1"
+  },
+  {
+    "name": "Bell_02",
+    "logic": "Bell_02+1"
+  },
+  {
+    "name": "Bell_03",
+    "logic": "Bell_03+1"
+  },
+  {
+    "name": "Bell_04",
+    "logic": "Bell_04+1"
+  },
+  {
+    "name": "Bell_05",
+    "logic": "Bell_05+1"
+  },
+  {
+    "name": "Bell_06",
+    "logic": "Bell_06+1"
+  },
+  {
+    "name": "Heart_Piece",
+    "logic": "Heart_Piece+1"
+  },
+  {
+    "name": "Collectable_Weaver_Record_Sprint_Challenge",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Rosary_Set_Frayed",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Psalm_Cylinder_Ward",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Magnetite_Dice",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Seal_Chit_Ward_Corpse",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Psalm_Cylinder_Hang",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Curve_Claws",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Quick_Sling",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Bone_Record_Greymoor_flooded_corridor",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Snare_Soul_Swamp_Bug",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Tack",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Rosary_Set_Large",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Barbed_Wire",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Silk_Snare",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_White_Ring",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Conch_Drill",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Flintstone",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Memento_Surface",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Bell_Bind",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Curve_Claws_Upgraded",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Hunter_Heart",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Harpoon",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Crest_Socket_Unlocker",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Psalm_Cylinder_Librarian",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Ant_Trapper_Item",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Straight_Pin",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Dead_Mans_Purse",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Skull_King_Fragment",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Weaver_Record_Weave_08",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Pickled_Roach_Egg",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Simple_Key",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Rosary_Set_Medium",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Rosary_Set_Small",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Coral_Heart",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Rosary_Cannon",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Pristine_Core",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Weaver_Totem_Witch",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Seal_Chit_Silk_Siphon",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Librarian_Melody_Cylinder",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Weaver_Totem_Bonetown_upper_room",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Broken_SilkShot",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Psalm_Cylinder_Library_Roof",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Weaver_Totem_Slab_Bottom",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Memento_Garmond",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Ward_Key",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Materium",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Maggot_Charm",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Farsight",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Revenge_Crystal",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Vintage_Nectar",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Tool_Metal",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Beastfly_Remains",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Bone_Record_Bone_East_14",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Crawbell",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Quickbind",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Grey_Memento",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Broodmother_Remains",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Shard_Pouch",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Dazzle_Bind_Upgraded",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Seal_Chit_Aspid_01",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Shell_Satchel",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Clover_Heart",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Flower_Heart",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Bone_Record_Wisp_Top",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Fractured_Mask",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Dock_Demo_Key",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Great_Shard",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Ward_Boss_Key",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Cog_Heart_Pieces",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Weighted_Anklet",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Zap_Imbuement",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Reserve_Bind",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Wisp_Lantern",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Lightning_Rod",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Weaver_Record_Conductor",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Tri_Pin",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Bone_Record_Understore_Map_Room",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Rosary_Set_Huge_White",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Crowman_Memento",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Ancient_Egg_Abyss_Middle",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Bone_Necklace",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Screw_Attack",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Dazzle_Bind",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Wood_Witch_Item",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Coral_Ingredient",
+    "logic": "NONE"
+  },
+  {
+    "name": "Collectable_Pale_Oil",
+    "logic": "NONE"
+  }
 ]

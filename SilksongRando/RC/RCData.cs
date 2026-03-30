@@ -28,7 +28,7 @@ namespace SilksongRando.RC
             ldb.DeserializeFile(LogicFileType.Waypoints,  fmt, OpenResource("Logic.waypoints.json"));
             ldb.DeserializeFile(LogicFileType.Transitions, fmt, OpenResource("Logic.transitions.json"));
             ldb.DeserializeFile(LogicFileType.Locations,  fmt, OpenResource("Logic.locations.json"));
-            ldb.DeserializeFile(LogicFileType.Items,      fmt, OpenResource("Logic.items.json"));
+            ldb.DeserializeFile(LogicFileType.ItemStrings, fmt, OpenResource("Logic.items.json"));
             ldb.DeserializeFile(LogicFileType.StateData,  fmt, OpenResource("Logic.state.json"));
 
             return new LogicManager(ldb);

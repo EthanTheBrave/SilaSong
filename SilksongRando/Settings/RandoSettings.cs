@@ -36,6 +36,9 @@ namespace SilksongRando.Settings
 
         /// <summary>Randomize equipment crests.</summary>
         public bool Crests { get; set; } = false;
+
+        /// <summary>Randomize all CollectableItemPickup locations (trinkets, relics, keys, etc).</summary>
+        public bool Collectables { get; set; } = true;
     }
 
     public class SkipSettings
