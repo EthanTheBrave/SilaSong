@@ -26,20 +26,30 @@ namespace SilksongIC.Locations
         [HarmonyPatch]
         internal static class Patches
         {
-            // Patch PlayMakerFSM state entry to intercept item-giving states.
-            // The actual type/method depends on the FSM library used by Silksong.
-            // FsmUtil provides helpers — update this if the API differs.
+            // Patch PlayMakerFSM.OnEnable globally (same pattern as HK ItemChanger).
+            // We do inline lookup instead of a pre-built cache because OnEnable fires
+            // during scene setup, before SceneManager.sceneLoaded fires — so any
+            // pre-built per-scene cache would be empty at patch time.
             [HarmonyPatch(typeof(PlayMakerFSM), "OnEnable")]
             [HarmonyPostfix]
             static void OnFSMEnabled(PlayMakerFSM __instance)
             {
-                var locationName = FSMLocationResolver.Resolve(__instance);
-                if (locationName == null)
-                    return;
+                var goName    = __instance.gameObject.name;
+                var fsmName   = __instance.FsmName;
+                var sceneName = __instance.gameObject.scene.name;
 
-                // Insert a custom action before the item-give state that
-                // delivers the randomized item and suppresses the vanilla give.
-                FSMPatcher.InsertDeliverAction(__instance, locationName);
+                foreach (var loc in ItemManager.Instance.Locations.Values)
+                {
+                    if (loc is FSMLocation fsmLoc &&
+                        fsmLoc.SceneName      == sceneName &&
+                        fsmLoc.GameObjectName == goName    &&
+                        fsmLoc.FSMName        == fsmName   &&
+                        !ItemManager.Instance.IsCollected(loc.Name))
+                    {
+                        FSMPatcher.InsertDeliverAction(__instance, loc.Name);
+                        return;
+                    }
+                }
             }
         }
     }

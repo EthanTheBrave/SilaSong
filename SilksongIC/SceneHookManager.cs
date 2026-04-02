@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using BepInEx.Logging;
-using HarmonyLib;
-using UnityEngine.SceneManagement;
 
 namespace SilksongIC
 {
     /// <summary>
     /// Listens for scene loads and calls OnSceneLoad on all registered locations
     /// whose SceneName matches the loaded scene.
+    ///
+    /// Scene notification comes from SilksongICPlugin via SceneManager.sceneLoaded,
+    /// which fires after all scene-object Awake/OnEnable calls complete.
     /// </summary>
     public static class SceneHookManager
     {
@@ -32,7 +33,7 @@ namespace SilksongIC
             }
         }
 
-        /// <summary>Called by the scene-loaded Harmony patch.</summary>
+        /// <summary>Called by SilksongICPlugin.OnSceneLoaded (SceneManager.sceneLoaded event).</summary>
         public static void OnSceneLoaded(string sceneName)
         {
             if (!_byScene.TryGetValue(sceneName, out var locations))
@@ -48,19 +49,6 @@ namespace SilksongIC
 
                 _log?.LogDebug($"[SilksongIC] Loading location: {loc.Name}");
                 loc.OnSceneLoad(ctx);
-            }
-        }
-
-        [HarmonyPatch]
-        internal static class Patches
-        {
-            // Patch UnityEngine's scene loaded event via the game's scene transition system.
-            // Update this target if the game uses a different scene management entry point.
-            [HarmonyPatch(typeof(SceneManager), nameof(SceneManager.LoadScene), new[] { typeof(string) })]
-            [HarmonyPostfix]
-            static void AfterSceneLoad(string sceneName)
-            {
-                OnSceneLoaded(sceneName);
             }
         }
     }

@@ -27,7 +27,7 @@ namespace SilksongRando.Hooks
         static void ForceCanGetMore(CollectableItem __instance, ref bool __result)
         {
             if (!RandoPlugin.Instance.IsRandoActive) return;
-            if (!__result) return; // already true, no need to override
+            if (__result) return; // already true, no need to override
 
             // If this item's asset name is the original item of a tracked location
             // that hasn't been collected yet, force it to appear as collectible.

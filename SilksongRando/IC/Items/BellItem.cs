@@ -3,8 +3,9 @@ using SilksongIC;
 namespace SilksongRando.IC.Items
 {
     /// <summary>
-    /// One of the five Bells required to unlock Act 2.
-    /// Same pattern as TrinketItem — CollectableItem added via CollectableItemManager.AddItem.
+    /// One of the six Bells required to unlock Act 2.
+    /// Uses CollectableItemManager.GetItemByName to resolve the asset from the game's
+    /// master list, then AddItem to give it to the player.
     /// </summary>
     public class BellItem : AbstractItem
     {
@@ -12,7 +13,7 @@ namespace SilksongRando.IC.Items
 
         public override void GiveItem(GiveInfo info)
         {
-            var item = UnityEngine.Resources.Load<CollectableItem>(ItemAssetName);
+            var item = CollectableItemManager.GetItemByName(ItemAssetName);
             if (item != null)
             {
                 CollectableItemManager.AddItem(item, 1);
@@ -20,13 +21,13 @@ namespace SilksongRando.IC.Items
             }
             else
             {
-                RandoPlugin.Logger.LogWarning($"[BellItem] Asset not found: {ItemAssetName}");
+                RandoPlugin.Logger.LogWarning($"[BellItem] Bell not found in master list: {ItemAssetName}");
             }
         }
 
         public override bool AlreadyObtained()
         {
-            var item = UnityEngine.Resources.Load<CollectableItem>(ItemAssetName);
+            var item = CollectableItemManager.GetItemByName(ItemAssetName);
             return item != null && !item.CanGetMore();
         }
     }

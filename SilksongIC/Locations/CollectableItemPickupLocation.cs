@@ -7,13 +7,14 @@ namespace SilksongIC.Locations
     /// Location for standard CollectableItemPickup components.
     ///
     /// From decompiled Assembly-CSharp:
-    ///   - CollectableItemPickup.DoPickup() is the private method that fires on interaction.
-    ///   - CollectableItemPickup.Item returns a SavedItem (the ScriptableObject asset).
+    ///   - CollectableItemPickup.DoPickup() fires on player interaction.
+    ///   - CollectableItemPickup.DoPickupInstant() fires for auto/proximity pickups.
+    ///   - Both are private void methods that ultimately call DoPickupAction().
+    ///   - CollectableItemPickup.Item returns a SavedItem (ScriptableObject asset).
     ///   - SavedItem.name (inherited from UnityEngine.Object) is the asset name.
-    ///   - OnPickedUp is a UnityEvent (not directly patchable as a method entry point).
     ///
-    /// Strategy: patch DoPickup with a prefix. If the pickup maps to a rando location,
-    /// suppress the vanilla give and deliver the randomized item instead.
+    /// Strategy: prefix both DoPickup and DoPickupInstant. If the pickup maps to
+    /// a rando location, suppress the vanilla give and deliver the rando item.
     /// </summary>
     public class CollectableItemPickupLocation : AbstractLocation
     {
@@ -31,20 +32,27 @@ namespace SilksongIC.Locations
         [HarmonyPatch]
         internal static class Patches
         {
-            // Patch DoPickup — the private method that fires when the player
-            // activates a CollectableItemPickup (confirmed from decompiled source).
             [HarmonyPatch(typeof(CollectableItemPickup), "DoPickup")]
             [HarmonyPrefix]
             static bool InterceptDoPickup(CollectableItemPickup __instance)
+                => Intercept(__instance);
+
+            // Also intercept auto/proximity pickups (triggered without player interaction).
+            [HarmonyPatch(typeof(CollectableItemPickup), "DoPickupInstant")]
+            [HarmonyPrefix]
+            static bool InterceptDoPickupInstant(CollectableItemPickup __instance)
+                => Intercept(__instance);
+
+            static bool Intercept(CollectableItemPickup instance)
             {
-                var locationName = LocationResolver.Resolve(__instance);
+                var locationName = LocationResolver.Resolve(instance);
                 if (locationName == null)
                     return true; // not a rando location — run vanilla
 
                 ItemManager.Instance.DeliverItem(locationName, new GiveInfo(
                     LocationName: locationName,
-                    Fling: FlingType.Gentle,
-                    Container: nameof(CollectableItemPickupLocation)
+                    Fling:        FlingType.Gentle,
+                    Container:    nameof(CollectableItemPickupLocation)
                 ));
 
                 return false; // suppress vanilla give

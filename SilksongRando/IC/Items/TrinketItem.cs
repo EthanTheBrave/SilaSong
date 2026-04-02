@@ -5,17 +5,18 @@ namespace SilksongRando.IC.Items
     /// <summary>
     /// Generic inventory item — Rosary pieces, Bone Necklace, Seal Chit, Ward Key, etc.
     ///
-    /// CollectableItemManager.AddItem(CollectableItem, int) is the confirmed
-    /// public static method. Items are loaded by asset name via Resources.Load.
+    /// CollectableItemManager.GetItemByName(string) looks up the asset in the game's
+    /// master list (confirmed from decompiled Assembly-CSharp).
+    /// CollectableItemManager.AddItem(CollectableItem, int) adds it to the player inventory.
     /// </summary>
     public class TrinketItem : AbstractItem
     {
-        /// <summary>The CollectableItem ScriptableObject asset name.</summary>
+        /// <summary>The CollectableItem asset name.</summary>
         public string ItemAssetName { get; init; } = string.Empty;
 
         public override void GiveItem(GiveInfo info)
         {
-            var item = UnityEngine.Resources.Load<CollectableItem>(ItemAssetName);
+            var item = CollectableItemManager.GetItemByName(ItemAssetName);
             if (item != null)
             {
                 CollectableItemManager.AddItem(item, 1);
@@ -23,13 +24,13 @@ namespace SilksongRando.IC.Items
             }
             else
             {
-                RandoPlugin.Logger.LogWarning($"[TrinketItem] Asset not found: {ItemAssetName}");
+                RandoPlugin.Logger.LogWarning($"[TrinketItem] Item not found in master list: {ItemAssetName}");
             }
         }
 
         public override bool AlreadyObtained()
         {
-            var item = UnityEngine.Resources.Load<CollectableItem>(ItemAssetName);
+            var item = CollectableItemManager.GetItemByName(ItemAssetName);
             return item != null && !item.CanGetMore();
         }
     }

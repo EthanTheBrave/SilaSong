@@ -14,8 +14,8 @@ namespace SilksongIC
     [BepInPlugin(GUID, Name, Version)]
     public class SilksongICPlugin : BaseUnityPlugin
     {
-        public const string GUID = "com.silksongrando.ic";
-        public const string Name = "SilksongIC";
+        public const string GUID    = "com.silksongrando.ic";
+        public const string Name    = "SilksongIC";
         public const string Version = "0.1.0";
 
         public static SilksongICPlugin Instance { get; private set; } = null!;
@@ -26,7 +26,7 @@ namespace SilksongIC
         private void Awake()
         {
             Instance = this;
-            Logger = base.Logger;
+            Logger   = base.Logger;
 
             ItemManager.Initialize(Logger);
             SceneHookManager.Initialize(Logger);
@@ -35,7 +35,8 @@ namespace SilksongIC
             _harmony = new Harmony(GUID);
             _harmony.PatchAll();
 
-            // Rebuild location index whenever a scene loads
+            // SceneManager.sceneLoaded fires after all Awake/OnEnable on scene objects,
+            // so CollectableItemPickup instances are fully initialized when we rebuild.
             SceneManager.sceneLoaded += OnSceneLoaded;
 
             Logger.LogInfo($"[SilksongIC] Loaded v{Version}");
@@ -43,8 +44,9 @@ namespace SilksongIC
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
+            // Rebuild the CollectableItemPickup resolver (needs live instances).
+            // FSMLocation uses inline lookup in its OnEnable patch — no cache needed.
             LocationResolver.RebuildForScene(scene.name);
-            FSMLocationResolver.RebuildForScene(scene.name);
             SceneHookManager.OnSceneLoaded(scene.name);
         }
 

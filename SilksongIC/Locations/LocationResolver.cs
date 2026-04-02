@@ -6,6 +6,9 @@ namespace SilksongIC.Locations
     /// <summary>
     /// Maps CollectableItemPickup instances → location names at runtime.
     ///
+    /// Rebuilt each scene load (after SceneManager.sceneLoaded fires, so all
+    /// CollectableItemPickup objects are fully initialized).
+    ///
     /// From decompiled Assembly-CSharp:
     ///   - CollectableItemPickup.Item returns a SavedItem (ScriptableObject).
     ///   - SavedItem.name (UnityEngine.Object.name) is the asset name we use
@@ -57,44 +60,6 @@ namespace SilksongIC.Locations
             }
 
             return null;
-        }
-    }
-
-    /// <summary>
-    /// Maps PlayMakerFSM instances → location names for FSMLocations.
-    /// </summary>
-    public static class FSMLocationResolver
-    {
-        private static readonly Dictionary<int, string> _cache = new();
-
-        public static void RebuildForScene(string sceneName)
-        {
-            _cache.Clear();
-
-            foreach (var loc in ItemManager.Instance.Locations.Values)
-            {
-                if (loc is not FSMLocation fsmLoc) continue;
-                if (fsmLoc.SceneName != sceneName) continue;
-
-                var go = GameObject.Find(fsmLoc.GameObjectName);
-                if (go == null) continue;
-
-                // Find the FSM by name on this GameObject
-                foreach (var fsm in go.GetComponents<PlayMakerFSM>())
-                {
-                    if (fsm.FsmName == fsmLoc.FSMName)
-                    {
-                        _cache[fsm.GetInstanceID()] = loc.Name;
-                        break;
-                    }
-                }
-            }
-        }
-
-        public static string? Resolve(PlayMakerFSM fsm)
-        {
-            _cache.TryGetValue(fsm.GetInstanceID(), out var name);
-            return name;
         }
     }
 }
